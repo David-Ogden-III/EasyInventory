@@ -1,6 +1,6 @@
 ﻿namespace C968_Ogden;
 
-partial class Form1
+partial class MainScreen
 {
     /// <summary>
     ///  Required designer variable.
@@ -28,11 +28,347 @@ partial class Form1
     /// </summary>
     private void InitializeComponent()
     {
-        this.components = new System.ComponentModel.Container();
-        this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-        this.ClientSize = new System.Drawing.Size(800, 450);
-        this.Text = "Form1";
+        components = new System.ComponentModel.Container();
+        PartTable = new DataGridView();
+        partID = new DataGridViewTextBoxColumn();
+        partName = new DataGridViewTextBoxColumn();
+        partInventory = new DataGridViewTextBoxColumn();
+        partPrice = new DataGridViewTextBoxColumn();
+        partMin = new DataGridViewTextBoxColumn();
+        partMax = new DataGridViewTextBoxColumn();
+        ProductTable = new DataGridView();
+        productID = new DataGridViewTextBoxColumn();
+        productName = new DataGridViewTextBoxColumn();
+        productInventory = new DataGridViewTextBoxColumn();
+        productPrice = new DataGridViewTextBoxColumn();
+        productMin = new DataGridViewTextBoxColumn();
+        productMax = new DataGridViewTextBoxColumn();
+        bindingSource1 = new BindingSource(components);
+        PartSearch = new TextBox();
+        ProductSearch = new TextBox();
+        PartSearchButton = new Button();
+        ProductSearchButton = new Button();
+        PartDeleteButton = new Button();
+        PartModifyButton = new Button();
+        PartAddButton = new Button();
+        ProductDeleteButton = new Button();
+        ProductModifyButton = new Button();
+        ProductAddButton = new Button();
+        PartTableLabel = new Label();
+        ProductTableLabel = new Label();
+        IMSLabel = new Label();
+        MainExitButton = new Button();
+        ((System.ComponentModel.ISupportInitialize)PartTable).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)ProductTable).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
+        SuspendLayout();
+        // 
+        // PartTable
+        // 
+        PartTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        PartTable.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+        PartTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+        PartTable.Columns.AddRange(new DataGridViewColumn[] { partID, partName, partInventory, partPrice, partMin, partMax });
+        PartTable.Location = new Point(28, 105);
+        PartTable.Name = "PartTable";
+        PartTable.RowHeadersVisible = false;
+        PartTable.Size = new Size(450, 200);
+        PartTable.TabIndex = 0;
+        PartTable.CellContentClick += dataGridView1_CellContentClick;
+        // 
+        // partID
+        // 
+        partID.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+        partID.HeaderText = "Part ID";
+        partID.Name = "partID";
+        // 
+        // partName
+        // 
+        partName.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+        partName.HeaderText = "Name";
+        partName.Name = "partName";
+        // 
+        // partInventory
+        // 
+        partInventory.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+        partInventory.HeaderText = "Inventory";
+        partInventory.Name = "partInventory";
+        // 
+        // partPrice
+        // 
+        partPrice.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+        partPrice.HeaderText = "Price";
+        partPrice.Name = "partPrice";
+        // 
+        // partMin
+        // 
+        partMin.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+        partMin.HeaderText = "Min";
+        partMin.Name = "partMin";
+        // 
+        // partMax
+        // 
+        partMax.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+        partMax.HeaderText = "Max";
+        partMax.Name = "partMax";
+        // 
+        // ProductTable
+        // 
+        ProductTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        ProductTable.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+        ProductTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+        ProductTable.Columns.AddRange(new DataGridViewColumn[] { productID, productName, productInventory, productPrice, productMin, productMax });
+        ProductTable.Location = new Point(506, 105);
+        ProductTable.Name = "ProductTable";
+        ProductTable.RowHeadersVisible = false;
+        ProductTable.Size = new Size(450, 200);
+        ProductTable.TabIndex = 1;
+        // 
+        // productID
+        // 
+        productID.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+        productID.HeaderText = "Product ID";
+        productID.Name = "productID";
+        productID.Width = 88;
+        // 
+        // productName
+        // 
+        productName.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+        productName.HeaderText = "Name";
+        productName.Name = "productName";
+        // 
+        // productInventory
+        // 
+        productInventory.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+        productInventory.HeaderText = "Inventory";
+        productInventory.Name = "productInventory";
+        // 
+        // productPrice
+        // 
+        productPrice.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+        productPrice.HeaderText = "Price";
+        productPrice.Name = "productPrice";
+        // 
+        // productMin
+        // 
+        productMin.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+        productMin.HeaderText = "Column1";
+        productMin.Name = "productMin";
+        // 
+        // productMax
+        // 
+        productMax.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+        productMax.HeaderText = "Max";
+        productMax.Name = "productMax";
+        // 
+        // PartSearch
+        // 
+        PartSearch.Location = new Point(328, 76);
+        PartSearch.Name = "PartSearch";
+        PartSearch.PlaceholderText = "Search...";
+        PartSearch.Size = new Size(150, 23);
+        PartSearch.TabIndex = 2;
+        // 
+        // ProductSearch
+        // 
+        ProductSearch.Location = new Point(806, 76);
+        ProductSearch.Name = "ProductSearch";
+        ProductSearch.PlaceholderText = "Search...";
+        ProductSearch.Size = new Size(150, 23);
+        ProductSearch.TabIndex = 3;
+        // 
+        // PartSearchButton
+        // 
+        PartSearchButton.BackColor = SystemColors.ButtonFace;
+        PartSearchButton.FlatAppearance.BorderColor = SystemColors.MenuHighlight;
+        PartSearchButton.FlatAppearance.BorderSize = 2;
+        PartSearchButton.ForeColor = SystemColors.ControlText;
+        PartSearchButton.Location = new Point(292, 76);
+        PartSearchButton.Name = "PartSearchButton";
+        PartSearchButton.Size = new Size(30, 23);
+        PartSearchButton.TabIndex = 4;
+        PartSearchButton.Text = "Go";
+        PartSearchButton.UseVisualStyleBackColor = false;
+        // 
+        // ProductSearchButton
+        // 
+        ProductSearchButton.BackColor = SystemColors.ButtonFace;
+        ProductSearchButton.FlatAppearance.BorderColor = SystemColors.MenuHighlight;
+        ProductSearchButton.FlatAppearance.BorderSize = 2;
+        ProductSearchButton.ForeColor = SystemColors.ControlText;
+        ProductSearchButton.Location = new Point(770, 76);
+        ProductSearchButton.Name = "ProductSearchButton";
+        ProductSearchButton.Size = new Size(30, 23);
+        ProductSearchButton.TabIndex = 5;
+        ProductSearchButton.Text = "Go";
+        ProductSearchButton.UseVisualStyleBackColor = false;
+        // 
+        // PartDeleteButton
+        // 
+        PartDeleteButton.Location = new Point(403, 311);
+        PartDeleteButton.Name = "PartDeleteButton";
+        PartDeleteButton.Size = new Size(75, 23);
+        PartDeleteButton.TabIndex = 6;
+        PartDeleteButton.Text = "Delete";
+        PartDeleteButton.UseVisualStyleBackColor = true;
+        PartDeleteButton.Click += button1_Click;
+        // 
+        // PartModifyButton
+        // 
+        PartModifyButton.Location = new Point(322, 311);
+        PartModifyButton.Name = "PartModifyButton";
+        PartModifyButton.Size = new Size(75, 23);
+        PartModifyButton.TabIndex = 7;
+        PartModifyButton.Text = "Modify";
+        PartModifyButton.UseVisualStyleBackColor = true;
+        PartModifyButton.Click += button1_Click_1;
+        // 
+        // PartAddButton
+        // 
+        PartAddButton.Location = new Point(241, 311);
+        PartAddButton.Name = "PartAddButton";
+        PartAddButton.Size = new Size(75, 23);
+        PartAddButton.TabIndex = 8;
+        PartAddButton.Text = "Add";
+        PartAddButton.UseVisualStyleBackColor = true;
+        PartAddButton.Click += PartAddButton_Click;
+        // 
+        // ProductDeleteButton
+        // 
+        ProductDeleteButton.Location = new Point(881, 311);
+        ProductDeleteButton.Name = "ProductDeleteButton";
+        ProductDeleteButton.Size = new Size(75, 23);
+        ProductDeleteButton.TabIndex = 9;
+        ProductDeleteButton.Text = "Delete";
+        ProductDeleteButton.UseVisualStyleBackColor = true;
+        // 
+        // ProductModifyButton
+        // 
+        ProductModifyButton.Location = new Point(800, 311);
+        ProductModifyButton.Name = "ProductModifyButton";
+        ProductModifyButton.Size = new Size(75, 23);
+        ProductModifyButton.TabIndex = 10;
+        ProductModifyButton.Text = "Modify";
+        ProductModifyButton.UseVisualStyleBackColor = true;
+        // 
+        // ProductAddButton
+        // 
+        ProductAddButton.Location = new Point(719, 311);
+        ProductAddButton.Name = "ProductAddButton";
+        ProductAddButton.Size = new Size(75, 23);
+        ProductAddButton.TabIndex = 11;
+        ProductAddButton.Text = "Add";
+        ProductAddButton.UseVisualStyleBackColor = true;
+        // 
+        // PartTableLabel
+        // 
+        PartTableLabel.AutoSize = true;
+        PartTableLabel.BackColor = Color.Transparent;
+        PartTableLabel.Font = new Font("Segoe UI", 15F);
+        PartTableLabel.ForeColor = SystemColors.ControlText;
+        PartTableLabel.Location = new Point(28, 76);
+        PartTableLabel.Name = "PartTableLabel";
+        PartTableLabel.Size = new Size(54, 28);
+        PartTableLabel.TabIndex = 12;
+        PartTableLabel.Text = "Parts";
+        PartTableLabel.TextAlign = ContentAlignment.BottomLeft;
+        // 
+        // ProductTableLabel
+        // 
+        ProductTableLabel.AutoSize = true;
+        ProductTableLabel.BackColor = Color.Transparent;
+        ProductTableLabel.Font = new Font("Segoe UI", 15F);
+        ProductTableLabel.ForeColor = SystemColors.ControlText;
+        ProductTableLabel.Location = new Point(506, 76);
+        ProductTableLabel.Name = "ProductTableLabel";
+        ProductTableLabel.Size = new Size(89, 28);
+        ProductTableLabel.TabIndex = 13;
+        ProductTableLabel.Text = "Products";
+        ProductTableLabel.TextAlign = ContentAlignment.BottomLeft;
+        ProductTableLabel.Click += label1_Click;
+        // 
+        // IMSLabel
+        // 
+        IMSLabel.AutoSize = true;
+        IMSLabel.Font = new Font("Segoe UI", 15F);
+        IMSLabel.Location = new Point(28, 9);
+        IMSLabel.Name = "IMSLabel";
+        IMSLabel.Size = new Size(283, 28);
+        IMSLabel.TabIndex = 14;
+        IMSLabel.Text = "Inventory Management System";
+        IMSLabel.Click += label1_Click_1;
+        // 
+        // MainExitButton
+        // 
+        MainExitButton.Location = new Point(881, 376);
+        MainExitButton.Name = "MainExitButton";
+        MainExitButton.Size = new Size(75, 23);
+        MainExitButton.TabIndex = 15;
+        MainExitButton.Text = "Exit";
+        MainExitButton.UseVisualStyleBackColor = true;
+        MainExitButton.Click += MainExitButton_Click;
+        // 
+        // MainScreen
+        // 
+        AutoScaleDimensions = new SizeF(7F, 15F);
+        AutoScaleMode = AutoScaleMode.Font;
+        ClientSize = new Size(984, 411);
+        Controls.Add(MainExitButton);
+        Controls.Add(IMSLabel);
+        Controls.Add(ProductTableLabel);
+        Controls.Add(PartTableLabel);
+        Controls.Add(ProductAddButton);
+        Controls.Add(ProductModifyButton);
+        Controls.Add(ProductDeleteButton);
+        Controls.Add(PartAddButton);
+        Controls.Add(PartModifyButton);
+        Controls.Add(PartDeleteButton);
+        Controls.Add(ProductSearchButton);
+        Controls.Add(PartSearchButton);
+        Controls.Add(ProductSearch);
+        Controls.Add(PartSearch);
+        Controls.Add(ProductTable);
+        Controls.Add(PartTable);
+        Name = "MainScreen";
+        StartPosition = FormStartPosition.CenterScreen;
+        Text = "Main Screen";
+        Load += Form1_Load;
+        ((System.ComponentModel.ISupportInitialize)PartTable).EndInit();
+        ((System.ComponentModel.ISupportInitialize)ProductTable).EndInit();
+        ((System.ComponentModel.ISupportInitialize)bindingSource1).EndInit();
+        ResumeLayout(false);
+        PerformLayout();
     }
 
     #endregion
+
+    private DataGridView PartTable;
+    private DataGridViewTextBoxColumn partID;
+    private DataGridViewTextBoxColumn partName;
+    private DataGridViewTextBoxColumn partInventory;
+    private DataGridViewTextBoxColumn partPrice;
+    private DataGridViewTextBoxColumn partMin;
+    private DataGridViewTextBoxColumn partMax;
+    private DataGridView ProductTable;
+    private DataGridViewTextBoxColumn productID;
+    private DataGridViewTextBoxColumn productName;
+    private DataGridViewTextBoxColumn productInventory;
+    private DataGridViewTextBoxColumn productPrice;
+    private DataGridViewTextBoxColumn productMin;
+    private DataGridViewTextBoxColumn productMax;
+    private BindingSource bindingSource1;
+    private TextBox PartSearch;
+    private TextBox ProductSearch;
+    private Button PartSearchButton;
+    private Button ProductSearchButton;
+    private Button PartDeleteButton;
+    private Button PartModifyButton;
+    private Button PartAddButton;
+    private Button ProductDeleteButton;
+    private Button ProductModifyButton;
+    private Button ProductAddButton;
+    private Label PartTableLabel;
+    private Label ProductTableLabel;
+    private Label IMSLabel;
+    private Button MainExitButton;
 }
