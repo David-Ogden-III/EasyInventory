@@ -300,7 +300,7 @@ partial class MainScreen
         // 
         // MainExitButton
         // 
-        MainExitButton.Location = new Point(881, 376);
+        MainExitButton.Location = new Point(881, 365);
         MainExitButton.Name = "MainExitButton";
         MainExitButton.Size = new Size(75, 23);
         MainExitButton.TabIndex = 15;

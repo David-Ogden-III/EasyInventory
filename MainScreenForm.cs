@@ -24,12 +24,22 @@ public partial class MainScreen : Form
 
     private void button1_Click_1(object sender, EventArgs e)
     {
-
+        ModifyPartForm modifyPartForm = new()
+        {
+            Tag = this
+        };
+        modifyPartForm.Show(this);
+        Hide();
     }
 
     private void PartAddButton_Click(object sender, EventArgs e)
     {
-
+        AddPartForm addPartForm = new()
+        {
+            Tag = this
+        };
+        addPartForm.Show(this);
+        Hide();
     }
 
     private void label1_Click(object sender, EventArgs e)
