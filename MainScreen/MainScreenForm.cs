@@ -19,7 +19,8 @@ public partial class MainScreen : Form
 
     private void button1_Click(object sender, EventArgs e)
     {
-
+        DeleteDialog dialog = new();
+        dialog.ShowDialog();
     }
 
     private void button1_Click_1(object sender, EventArgs e)
@@ -60,5 +61,21 @@ public partial class MainScreen : Form
         };
         addProductForm.Show(this);
         Hide();
+    }
+
+    private void ProductModifyButton_Click(object sender, EventArgs e)
+    {
+        ModifyProductForm modifyProductForm = new()
+        {
+            Tag = this
+        };
+        modifyProductForm.Show(this);
+        Hide();
+    }
+
+    private void ProductDeleteButton_Click(object sender, EventArgs e)
+    {
+        DeleteDialog dialog = new();
+        dialog.ShowDialog();
     }
 }

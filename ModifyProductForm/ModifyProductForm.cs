@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace C968_Ogden
 {
-    public partial class AddProductForm : Form
+    public partial class ModifyProductForm : Form
     {
-        public AddProductForm()
+        public ModifyProductForm()
         {
             InitializeComponent();
         }

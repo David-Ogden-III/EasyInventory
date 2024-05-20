@@ -65,6 +65,8 @@ partial class MainScreen
         // 
         // PartTable
         // 
+        PartTable.AllowUserToAddRows = false;
+        PartTable.AllowUserToDeleteRows = false;
         PartTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         PartTable.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
         PartTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -72,6 +74,7 @@ partial class MainScreen
         PartTable.Location = new Point(28, 105);
         PartTable.MultiSelect = false;
         PartTable.Name = "PartTable";
+        PartTable.ReadOnly = true;
         PartTable.RowHeadersVisible = false;
         PartTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         PartTable.Size = new Size(450, 200);
@@ -83,39 +86,47 @@ partial class MainScreen
         partID.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         partID.HeaderText = "Part ID";
         partID.Name = "partID";
+        partID.ReadOnly = true;
         // 
         // partName
         // 
         partName.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         partName.HeaderText = "Name";
         partName.Name = "partName";
+        partName.ReadOnly = true;
         // 
         // partInventory
         // 
         partInventory.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         partInventory.HeaderText = "Inventory";
         partInventory.Name = "partInventory";
+        partInventory.ReadOnly = true;
         // 
         // partPrice
         // 
         partPrice.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         partPrice.HeaderText = "Price";
         partPrice.Name = "partPrice";
+        partPrice.ReadOnly = true;
         // 
         // partMin
         // 
         partMin.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         partMin.HeaderText = "Min";
         partMin.Name = "partMin";
+        partMin.ReadOnly = true;
         // 
         // partMax
         // 
         partMax.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         partMax.HeaderText = "Max";
         partMax.Name = "partMax";
+        partMax.ReadOnly = true;
         // 
         // ProductTable
         // 
+        ProductTable.AllowUserToAddRows = false;
+        ProductTable.AllowUserToDeleteRows = false;
         ProductTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         ProductTable.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
         ProductTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -123,6 +134,7 @@ partial class MainScreen
         ProductTable.Location = new Point(506, 105);
         ProductTable.MultiSelect = false;
         ProductTable.Name = "ProductTable";
+        ProductTable.ReadOnly = true;
         ProductTable.RowHeadersVisible = false;
         ProductTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         ProductTable.Size = new Size(450, 200);
@@ -133,6 +145,7 @@ partial class MainScreen
         productID.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
         productID.HeaderText = "Product ID";
         productID.Name = "productID";
+        productID.ReadOnly = true;
         productID.Width = 88;
         // 
         // productName
@@ -140,30 +153,35 @@ partial class MainScreen
         productName.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         productName.HeaderText = "Name";
         productName.Name = "productName";
+        productName.ReadOnly = true;
         // 
         // productInventory
         // 
         productInventory.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         productInventory.HeaderText = "Inventory";
         productInventory.Name = "productInventory";
+        productInventory.ReadOnly = true;
         // 
         // productPrice
         // 
         productPrice.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         productPrice.HeaderText = "Price";
         productPrice.Name = "productPrice";
+        productPrice.ReadOnly = true;
         // 
         // productMin
         // 
         productMin.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         productMin.HeaderText = "Column1";
         productMin.Name = "productMin";
+        productMin.ReadOnly = true;
         // 
         // productMax
         // 
         productMax.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         productMax.HeaderText = "Max";
         productMax.Name = "productMax";
+        productMax.ReadOnly = true;
         // 
         // PartSearch
         // 
@@ -246,6 +264,7 @@ partial class MainScreen
         ProductDeleteButton.TabIndex = 9;
         ProductDeleteButton.Text = "Delete";
         ProductDeleteButton.UseVisualStyleBackColor = true;
+        ProductDeleteButton.Click += ProductDeleteButton_Click;
         // 
         // ProductModifyButton
         // 
@@ -255,6 +274,7 @@ partial class MainScreen
         ProductModifyButton.TabIndex = 10;
         ProductModifyButton.Text = "Modify";
         ProductModifyButton.UseVisualStyleBackColor = true;
+        ProductModifyButton.Click += ProductModifyButton_Click;
         // 
         // ProductAddButton
         // 

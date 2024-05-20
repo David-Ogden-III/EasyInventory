@@ -112,6 +112,8 @@
             // 
             // AllCandidatePartTable
             // 
+            AllCandidatePartTable.AllowUserToAddRows = false;
+            AllCandidatePartTable.AllowUserToDeleteRows = false;
             AllCandidatePartTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             AllCandidatePartTable.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             AllCandidatePartTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -119,6 +121,7 @@
             AllCandidatePartTable.Location = new Point(320, 56);
             AllCandidatePartTable.MultiSelect = false;
             AllCandidatePartTable.Name = "AllCandidatePartTable";
+            AllCandidatePartTable.ReadOnly = true;
             AllCandidatePartTable.RowHeadersVisible = false;
             AllCandidatePartTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             AllCandidatePartTable.Size = new Size(450, 138);
@@ -129,36 +132,42 @@
             partID.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             partID.HeaderText = "Part ID";
             partID.Name = "partID";
+            partID.ReadOnly = true;
             // 
             // partName
             // 
             partName.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             partName.HeaderText = "Name";
             partName.Name = "partName";
+            partName.ReadOnly = true;
             // 
             // partInventory
             // 
             partInventory.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             partInventory.HeaderText = "Inventory";
             partInventory.Name = "partInventory";
+            partInventory.ReadOnly = true;
             // 
             // partPrice
             // 
             partPrice.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             partPrice.HeaderText = "Price";
             partPrice.Name = "partPrice";
+            partPrice.ReadOnly = true;
             // 
             // partMin
             // 
             partMin.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             partMin.HeaderText = "Min";
             partMin.Name = "partMin";
+            partMin.ReadOnly = true;
             // 
             // partMax
             // 
             partMax.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             partMax.HeaderText = "Max";
             partMax.Name = "partMax";
+            partMax.ReadOnly = true;
             // 
             // AddProductMaxInput
             // 
@@ -294,6 +303,8 @@
             // 
             // AssociatedPartsTable
             // 
+            AssociatedPartsTable.AllowUserToAddRows = false;
+            AssociatedPartsTable.AllowUserToDeleteRows = false;
             AssociatedPartsTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             AssociatedPartsTable.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             AssociatedPartsTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -301,6 +312,7 @@
             AssociatedPartsTable.Location = new Point(320, 257);
             AssociatedPartsTable.MultiSelect = false;
             AssociatedPartsTable.Name = "AssociatedPartsTable";
+            AssociatedPartsTable.ReadOnly = true;
             AssociatedPartsTable.RowHeadersVisible = false;
             AssociatedPartsTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             AssociatedPartsTable.Size = new Size(450, 138);
@@ -311,36 +323,42 @@
             dataGridViewTextBoxColumn1.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dataGridViewTextBoxColumn1.HeaderText = "Part ID";
             dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn2
             // 
             dataGridViewTextBoxColumn2.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dataGridViewTextBoxColumn2.HeaderText = "Name";
             dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn3
             // 
             dataGridViewTextBoxColumn3.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dataGridViewTextBoxColumn3.HeaderText = "Inventory";
             dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn4
             // 
             dataGridViewTextBoxColumn4.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dataGridViewTextBoxColumn4.HeaderText = "Price";
             dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            dataGridViewTextBoxColumn4.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn5
             // 
             dataGridViewTextBoxColumn5.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dataGridViewTextBoxColumn5.HeaderText = "Min";
             dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            dataGridViewTextBoxColumn5.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn6
             // 
             dataGridViewTextBoxColumn6.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dataGridViewTextBoxColumn6.HeaderText = "Max";
             dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            dataGridViewTextBoxColumn6.ReadOnly = true;
             // 
             // AddProductCancel
             // 
@@ -393,6 +411,7 @@
             Name = "AddProductForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Product";
+            Load += AddProductForm_Load;
             ((System.ComponentModel.ISupportInitialize)AllCandidatePartTable).EndInit();
             ((System.ComponentModel.ISupportInitialize)AssociatedPartsTable).EndInit();
             ResumeLayout(false);
