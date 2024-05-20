@@ -70,8 +70,10 @@ partial class MainScreen
         PartTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
         PartTable.Columns.AddRange(new DataGridViewColumn[] { partID, partName, partInventory, partPrice, partMin, partMax });
         PartTable.Location = new Point(28, 105);
+        PartTable.MultiSelect = false;
         PartTable.Name = "PartTable";
         PartTable.RowHeadersVisible = false;
+        PartTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         PartTable.Size = new Size(450, 200);
         PartTable.TabIndex = 0;
         PartTable.CellContentClick += dataGridView1_CellContentClick;
@@ -119,8 +121,10 @@ partial class MainScreen
         ProductTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
         ProductTable.Columns.AddRange(new DataGridViewColumn[] { productID, productName, productInventory, productPrice, productMin, productMax });
         ProductTable.Location = new Point(506, 105);
+        ProductTable.MultiSelect = false;
         ProductTable.Name = "ProductTable";
         ProductTable.RowHeadersVisible = false;
+        ProductTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         ProductTable.Size = new Size(450, 200);
         ProductTable.TabIndex = 1;
         // 
@@ -168,6 +172,7 @@ partial class MainScreen
         PartSearch.PlaceholderText = "Search...";
         PartSearch.Size = new Size(150, 23);
         PartSearch.TabIndex = 2;
+        PartSearch.TextChanged += PartSearch_TextChanged;
         // 
         // ProductSearch
         // 
@@ -259,6 +264,7 @@ partial class MainScreen
         ProductAddButton.TabIndex = 11;
         ProductAddButton.Text = "Add";
         ProductAddButton.UseVisualStyleBackColor = true;
+        ProductAddButton.Click += ProductAddButton_Click;
         // 
         // PartTableLabel
         // 
@@ -285,7 +291,6 @@ partial class MainScreen
         ProductTableLabel.TabIndex = 13;
         ProductTableLabel.Text = "Products";
         ProductTableLabel.TextAlign = ContentAlignment.BottomLeft;
-        ProductTableLabel.Click += label1_Click;
         // 
         // IMSLabel
         // 
@@ -296,7 +301,6 @@ partial class MainScreen
         IMSLabel.Size = new Size(283, 28);
         IMSLabel.TabIndex = 14;
         IMSLabel.Text = "Inventory Management System";
-        IMSLabel.Click += label1_Click_1;
         // 
         // MainExitButton
         // 

@@ -42,18 +42,23 @@ public partial class MainScreen : Form
         Hide();
     }
 
-    private void label1_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    private void label1_Click_1(object sender, EventArgs e)
-    {
-
-    }
-
     private void MainExitButton_Click(object sender, EventArgs e)
     {
         Application.Exit();
+    }
+
+    private void PartSearch_TextChanged(object sender, EventArgs e)
+    {
+
+    }
+
+    private void ProductAddButton_Click(object sender, EventArgs e)
+    {
+        AddProductForm addProductForm = new()
+        {
+            Tag = this
+        };
+        addProductForm.Show(this);
+        Hide();
     }
 }
