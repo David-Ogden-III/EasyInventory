@@ -1,4 +1,5 @@
-﻿namespace C968_Ogden;
+﻿using System.Linq;
+namespace C968_Ogden;
 
 partial class MainScreen
 {
@@ -30,6 +31,7 @@ partial class MainScreen
     {
         components = new System.ComponentModel.Container();
         PartTable = new DataGridView();
+        PartBindingSource = new BindingSource { DataSource = Inventory.AllParts};
         partID = new DataGridViewTextBoxColumn();
         partName = new DataGridViewTextBoxColumn();
         partInventory = new DataGridViewTextBoxColumn();
@@ -37,6 +39,7 @@ partial class MainScreen
         partMin = new DataGridViewTextBoxColumn();
         partMax = new DataGridViewTextBoxColumn();
         ProductTable = new DataGridView();
+        ProductBindingSource = new BindingSource { DataSource = Inventory.Products};
         productID = new DataGridViewTextBoxColumn();
         productName = new DataGridViewTextBoxColumn();
         productInventory = new DataGridViewTextBoxColumn();
@@ -59,7 +62,9 @@ partial class MainScreen
         IMSLabel = new Label();
         MainExitButton = new Button();
         ((System.ComponentModel.ISupportInitialize)PartTable).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)PartBindingSource).BeginInit();
         ((System.ComponentModel.ISupportInitialize)ProductTable).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)ProductBindingSource).BeginInit();
         ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
         SuspendLayout();
         // 
@@ -70,7 +75,7 @@ partial class MainScreen
         PartTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         PartTable.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
         PartTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-        PartTable.Columns.AddRange(new DataGridViewColumn[] { partID, partName, partInventory, partPrice, partMin, partMax });
+        PartTable.DataSource = PartBindingSource;
         PartTable.Location = new Point(28, 105);
         PartTable.MultiSelect = false;
         PartTable.Name = "PartTable";
@@ -130,7 +135,7 @@ partial class MainScreen
         ProductTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         ProductTable.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
         ProductTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-        ProductTable.Columns.AddRange(new DataGridViewColumn[] { productID, productName, productInventory, productPrice, productMin, productMax });
+        ProductTable.DataSource = ProductBindingSource;
         ProductTable.Location = new Point(506, 105);
         ProductTable.MultiSelect = false;
         ProductTable.Name = "ProductTable";
@@ -146,7 +151,6 @@ partial class MainScreen
         productID.HeaderText = "Product ID";
         productID.Name = "productID";
         productID.ReadOnly = true;
-        productID.Width = 88;
         // 
         // productName
         // 
@@ -172,7 +176,7 @@ partial class MainScreen
         // productMin
         // 
         productMin.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-        productMin.HeaderText = "Column1";
+        productMin.HeaderText = "Min";
         productMin.Name = "productMin";
         productMin.ReadOnly = true;
         // 
@@ -358,7 +362,9 @@ partial class MainScreen
         Text = "Main Screen";
         Load += Form1_Load;
         ((System.ComponentModel.ISupportInitialize)PartTable).EndInit();
+        ((System.ComponentModel.ISupportInitialize)PartBindingSource).EndInit();
         ((System.ComponentModel.ISupportInitialize)ProductTable).EndInit();
+        ((System.ComponentModel.ISupportInitialize)ProductBindingSource).EndInit();
         ((System.ComponentModel.ISupportInitialize)bindingSource1).EndInit();
         ResumeLayout(false);
         PerformLayout();
@@ -395,4 +401,6 @@ partial class MainScreen
     private Label ProductTableLabel;
     private Label IMSLabel;
     private Button MainExitButton;
+    private BindingSource PartBindingSource;
+    private BindingSource ProductBindingSource;
 }
