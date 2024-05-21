@@ -328,7 +328,8 @@
             AllCandidatePartTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             AllCandidatePartTable.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             AllCandidatePartTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            AllCandidatePartTable.Columns.AddRange(new DataGridViewColumn[] { partID, partName, partInventory, partPrice, partMin, partMax });
+            var CandidatePartsBindingSource = new BindingSource { DataSource = Inventory.AllParts };
+            AllCandidatePartTable.DataSource = CandidatePartsBindingSource;
             AllCandidatePartTable.Location = new Point(320, 56);
             AllCandidatePartTable.MultiSelect = false;
             AllCandidatePartTable.Name = "AllCandidatePartTable";
@@ -411,6 +412,7 @@
             Name = "ModifyProductForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
+            Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)AssociatedPartsTable).EndInit();
             ((System.ComponentModel.ISupportInitialize)AllCandidatePartTable).EndInit();
             ResumeLayout(false);

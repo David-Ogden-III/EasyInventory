@@ -1,5 +1,4 @@
-﻿using System.Linq;
-namespace C968_Ogden;
+﻿namespace C968_Ogden;
 
 partial class MainScreen
 {
@@ -32,21 +31,8 @@ partial class MainScreen
         components = new System.ComponentModel.Container();
         PartTable = new DataGridView();
         PartBindingSource = new BindingSource { DataSource = Inventory.AllParts};
-        partID = new DataGridViewTextBoxColumn();
-        partName = new DataGridViewTextBoxColumn();
-        partInventory = new DataGridViewTextBoxColumn();
-        partPrice = new DataGridViewTextBoxColumn();
-        partMin = new DataGridViewTextBoxColumn();
-        partMax = new DataGridViewTextBoxColumn();
         ProductTable = new DataGridView();
         ProductBindingSource = new BindingSource { DataSource = Inventory.Products};
-        productID = new DataGridViewTextBoxColumn();
-        productName = new DataGridViewTextBoxColumn();
-        productInventory = new DataGridViewTextBoxColumn();
-        productPrice = new DataGridViewTextBoxColumn();
-        productMin = new DataGridViewTextBoxColumn();
-        productMax = new DataGridViewTextBoxColumn();
-        bindingSource1 = new BindingSource(components);
         PartSearch = new TextBox();
         ProductSearch = new TextBox();
         PartSearchButton = new Button();
@@ -65,7 +51,6 @@ partial class MainScreen
         ((System.ComponentModel.ISupportInitialize)PartBindingSource).BeginInit();
         ((System.ComponentModel.ISupportInitialize)ProductTable).BeginInit();
         ((System.ComponentModel.ISupportInitialize)ProductBindingSource).BeginInit();
-        ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
         SuspendLayout();
         // 
         // PartTable
@@ -84,49 +69,6 @@ partial class MainScreen
         PartTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         PartTable.Size = new Size(450, 200);
         PartTable.TabIndex = 0;
-        PartTable.CellContentClick += dataGridView1_CellContentClick;
-        // 
-        // partID
-        // 
-        partID.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-        partID.HeaderText = "Part ID";
-        partID.Name = "partID";
-        partID.ReadOnly = true;
-        // 
-        // partName
-        // 
-        partName.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-        partName.HeaderText = "Name";
-        partName.Name = "partName";
-        partName.ReadOnly = true;
-        // 
-        // partInventory
-        // 
-        partInventory.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-        partInventory.HeaderText = "Inventory";
-        partInventory.Name = "partInventory";
-        partInventory.ReadOnly = true;
-        // 
-        // partPrice
-        // 
-        partPrice.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-        partPrice.HeaderText = "Price";
-        partPrice.Name = "partPrice";
-        partPrice.ReadOnly = true;
-        // 
-        // partMin
-        // 
-        partMin.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-        partMin.HeaderText = "Min";
-        partMin.Name = "partMin";
-        partMin.ReadOnly = true;
-        // 
-        // partMax
-        // 
-        partMax.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-        partMax.HeaderText = "Max";
-        partMax.Name = "partMax";
-        partMax.ReadOnly = true;
         // 
         // ProductTable
         // 
@@ -144,48 +86,6 @@ partial class MainScreen
         ProductTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         ProductTable.Size = new Size(450, 200);
         ProductTable.TabIndex = 1;
-        // 
-        // productID
-        // 
-        productID.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
-        productID.HeaderText = "Product ID";
-        productID.Name = "productID";
-        productID.ReadOnly = true;
-        // 
-        // productName
-        // 
-        productName.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-        productName.HeaderText = "Name";
-        productName.Name = "productName";
-        productName.ReadOnly = true;
-        // 
-        // productInventory
-        // 
-        productInventory.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-        productInventory.HeaderText = "Inventory";
-        productInventory.Name = "productInventory";
-        productInventory.ReadOnly = true;
-        // 
-        // productPrice
-        // 
-        productPrice.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-        productPrice.HeaderText = "Price";
-        productPrice.Name = "productPrice";
-        productPrice.ReadOnly = true;
-        // 
-        // productMin
-        // 
-        productMin.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-        productMin.HeaderText = "Min";
-        productMin.Name = "productMin";
-        productMin.ReadOnly = true;
-        // 
-        // productMax
-        // 
-        productMax.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-        productMax.HeaderText = "Max";
-        productMax.Name = "productMax";
-        productMax.ReadOnly = true;
         // 
         // PartSearch
         // 
@@ -365,7 +265,6 @@ partial class MainScreen
         ((System.ComponentModel.ISupportInitialize)PartBindingSource).EndInit();
         ((System.ComponentModel.ISupportInitialize)ProductTable).EndInit();
         ((System.ComponentModel.ISupportInitialize)ProductBindingSource).EndInit();
-        ((System.ComponentModel.ISupportInitialize)bindingSource1).EndInit();
         ResumeLayout(false);
         PerformLayout();
     }
@@ -373,20 +272,7 @@ partial class MainScreen
     #endregion
 
     private DataGridView PartTable;
-    private DataGridViewTextBoxColumn partID;
-    private DataGridViewTextBoxColumn partName;
-    private DataGridViewTextBoxColumn partInventory;
-    private DataGridViewTextBoxColumn partPrice;
-    private DataGridViewTextBoxColumn partMin;
-    private DataGridViewTextBoxColumn partMax;
     private DataGridView ProductTable;
-    private DataGridViewTextBoxColumn productID;
-    private DataGridViewTextBoxColumn productName;
-    private DataGridViewTextBoxColumn productInventory;
-    private DataGridViewTextBoxColumn productPrice;
-    private DataGridViewTextBoxColumn productMin;
-    private DataGridViewTextBoxColumn productMax;
-    private BindingSource bindingSource1;
     private TextBox PartSearch;
     private TextBox ProductSearch;
     private Button PartSearchButton;

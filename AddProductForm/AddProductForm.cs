@@ -35,6 +35,12 @@ namespace C968_Ogden
 
         private void AddProductForm_Load(object sender, EventArgs e)
         {
+            AllCandidatePartTable.ClearSelection();
+            AssociatedPartsTable.ClearSelection();
+        }
+
+        private void AllCandidatePartTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
         }
     }

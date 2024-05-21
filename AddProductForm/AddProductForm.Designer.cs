@@ -33,12 +33,6 @@
             SearchCandidatePartButton = new Button();
             SearchCandidatePartsInput = new TextBox();
             AllCandidatePartTable = new DataGridView();
-            partID = new DataGridViewTextBoxColumn();
-            partName = new DataGridViewTextBoxColumn();
-            partInventory = new DataGridViewTextBoxColumn();
-            partPrice = new DataGridViewTextBoxColumn();
-            partMin = new DataGridViewTextBoxColumn();
-            partMax = new DataGridViewTextBoxColumn();
             AddProductMaxInput = new TextBox();
             AddProductMinInput = new TextBox();
             AddProductNameInput = new TextBox();
@@ -117,7 +111,8 @@
             AllCandidatePartTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             AllCandidatePartTable.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             AllCandidatePartTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            AllCandidatePartTable.Columns.AddRange(new DataGridViewColumn[] { partID, partName, partInventory, partPrice, partMin, partMax });
+            var CandidatePartsBindingSource = new BindingSource { DataSource = Inventory.AllParts };
+            AllCandidatePartTable.DataSource = CandidatePartsBindingSource;
             AllCandidatePartTable.Location = new Point(320, 56);
             AllCandidatePartTable.MultiSelect = false;
             AllCandidatePartTable.Name = "AllCandidatePartTable";
@@ -126,48 +121,7 @@
             AllCandidatePartTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             AllCandidatePartTable.Size = new Size(450, 138);
             AllCandidatePartTable.TabIndex = 13;
-            // 
-            // partID
-            // 
-            partID.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            partID.HeaderText = "Part ID";
-            partID.Name = "partID";
-            partID.ReadOnly = true;
-            // 
-            // partName
-            // 
-            partName.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            partName.HeaderText = "Name";
-            partName.Name = "partName";
-            partName.ReadOnly = true;
-            // 
-            // partInventory
-            // 
-            partInventory.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            partInventory.HeaderText = "Inventory";
-            partInventory.Name = "partInventory";
-            partInventory.ReadOnly = true;
-            // 
-            // partPrice
-            // 
-            partPrice.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            partPrice.HeaderText = "Price";
-            partPrice.Name = "partPrice";
-            partPrice.ReadOnly = true;
-            // 
-            // partMin
-            // 
-            partMin.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            partMin.HeaderText = "Min";
-            partMin.Name = "partMin";
-            partMin.ReadOnly = true;
-            // 
-            // partMax
-            // 
-            partMax.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            partMax.HeaderText = "Max";
-            partMax.Name = "partMax";
-            partMax.ReadOnly = true;
+            AllCandidatePartTable.CellContentClick += AllCandidatePartTable_CellContentClick;
             // 
             // AddProductMaxInput
             // 
@@ -425,12 +379,6 @@
         private Button SearchCandidatePartButton;
         private TextBox SearchCandidatePartsInput;
         private DataGridView AllCandidatePartTable;
-        private DataGridViewTextBoxColumn partID;
-        private DataGridViewTextBoxColumn partName;
-        private DataGridViewTextBoxColumn partInventory;
-        private DataGridViewTextBoxColumn partPrice;
-        private DataGridViewTextBoxColumn partMin;
-        private DataGridViewTextBoxColumn partMax;
         private TextBox AddProductMaxInput;
         private TextBox AddProductMinInput;
         private TextBox AddProductNameInput;
