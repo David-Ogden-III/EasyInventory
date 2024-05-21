@@ -43,16 +43,16 @@
         {
             var MainScreen = Tag as MainScreen;
             MainScreen?.Show();
-            
+
             Close();
         }
 
         private void OutsourcedRadio_CheckedChanged(object sender, EventArgs e)
         {
-                AddPartMachineIdInput.Hide();
-                AddPartMachineIdLabel.Hide();
-                AddPartCompanyInput.Show();
-                AddPartCompanyNameLabel.Show();
+            AddPartMachineIdInput.Hide();
+            AddPartMachineIdLabel.Hide();
+            AddPartCompanyInput.Show();
+            AddPartCompanyNameLabel.Show();
         }
 
         private void InHouseRadio_CheckedChanged(object sender, EventArgs e)

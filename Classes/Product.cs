@@ -11,7 +11,7 @@ public class Product(string name, decimal price, int inStock, int min, int max)
             return id;
         }
     }
-    
+
     public string Name { get; set; } = name;
     [DisplayName("Inventory")]
     public int InStock { get; set; } = inStock;

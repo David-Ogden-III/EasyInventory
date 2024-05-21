@@ -47,10 +47,9 @@ public static class Inventory
         AllParts.Add(partToAdd);
     }
 
-    public static bool DeletePart(Part placeholder)
+    public static bool DeletePart(Part partToDelete)
     {
-        //Todo: update parameter and function body
-        return true;
+        return AllParts.Remove(partToDelete);
     }
 
     public static void LookupPart(int placeholder)
@@ -58,7 +57,7 @@ public static class Inventory
         //Todo: update parameter, function body, return type, and return statement
     }
 
-    public static void UpdatePart(int placeholder, Part placeholder2)
+    public static void UpdatePart(int rowIndex, Part updatedPart)
     {
         //Todo: update parameter and function body
     }

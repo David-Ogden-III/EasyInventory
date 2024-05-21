@@ -138,7 +138,7 @@ partial class MainScreen
         PartDeleteButton.TabIndex = 6;
         PartDeleteButton.Text = "Delete";
         PartDeleteButton.UseVisualStyleBackColor = true;
-        PartDeleteButton.Click += button1_Click;
+        PartDeleteButton.Click += PartDeleteButton_Click;
         // 
         // PartModifyButton
         // 
@@ -148,7 +148,7 @@ partial class MainScreen
         PartModifyButton.TabIndex = 7;
         PartModifyButton.Text = "Modify";
         PartModifyButton.UseVisualStyleBackColor = true;
-        PartModifyButton.Click += button1_Click_1;
+        PartModifyButton.Click += PartModifyButton_Click;
         // 
         // PartAddButton
         // 

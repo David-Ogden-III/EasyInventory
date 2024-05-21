@@ -1,6 +1,6 @@
 using System.ComponentModel;
 
-public abstract class Part(string name, decimal price, int inStock, int min, int max)
+public abstract class Part(string name, decimal price, int inStock, int min, int max, int? id = null)
 {
 
     //Required Properties
@@ -18,13 +18,13 @@ public abstract class Part(string name, decimal price, int inStock, int min, int
     public decimal Price { get; set; } = price;
     public int Min { get; set; } = min;
     public int Max { get; set; } = max;
-    
+
 
 
 
     // Helper Fields
     private static int idCounter = 0;
-    private readonly int id = IdIncrement();
+    private readonly int id = (id != null ? (int)id : IdIncrement());
 
 
 

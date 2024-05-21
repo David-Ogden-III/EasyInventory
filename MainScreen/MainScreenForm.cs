@@ -1,3 +1,5 @@
+using System.Diagnostics;
+
 namespace C968_Ogden;
 
 public partial class MainScreen : Form
@@ -13,20 +15,74 @@ public partial class MainScreen : Form
         ProductTable.ClearSelection();
     }
 
-    private void button1_Click(object sender, EventArgs e)
+    private void MainExitButton_Click(object sender, EventArgs e)
     {
-        DeleteDialog dialog = new();
-        dialog.ShowDialog();
+        Application.Exit();
     }
 
-    private void button1_Click_1(object sender, EventArgs e)
+    // Part Controls
+    private void PartDeleteButton_Click(object sender, EventArgs e)
     {
-        ModifyPartForm modifyPartForm = new()
+        int selectedRowIndex = PartTable.CurrentRow.Index;
+        int partId = Convert.ToInt32(PartTable[0, selectedRowIndex].Value);
+        string? partType = PartTable.CurrentRow.DataBoundItem.ToString();
+        dynamic? partToDelete = null;
+
+        foreach (Part part in Inventory.AllParts)
         {
-            Tag = this
-        };
-        modifyPartForm.Show(this);
-        Hide();
+            if (part.PartId == partId)
+            {
+                if (partType == "Outsourced")
+                {
+                    partToDelete = (Outsourced)part;
+                    break;
+                }
+                else
+                {
+                    partToDelete = (InHouse)part;
+                    break;
+                }
+            }
+        }
+
+        if (partToDelete != null)
+        {
+            DeleteDialog dialog = new(partToDelete: partToDelete);
+            dialog.ShowDialog();
+        }
+    }
+
+    private void PartModifyButton_Click(object sender, EventArgs e)
+    {
+        int selectedRowIndex = PartTable.CurrentRow.Index;
+        int partId = Convert.ToInt32(PartTable[0, selectedRowIndex].Value);
+        string? partType = PartTable.CurrentRow.DataBoundItem.ToString();
+        dynamic? partToModify = null;
+
+        foreach (Part part in Inventory.AllParts)
+        {
+            if (part.PartId == partId)
+            {
+                if (partType == "Outsourced")
+                {
+                    partToModify = (Outsourced)part;
+                    break;
+                }
+                else
+                {
+                    partToModify = (InHouse)part;
+                    break;
+                }
+            }
+        }
+
+
+        if (partToModify != null)
+        {
+            ModifyPartForm modifyPartForm = new(partToModify, partType, selectedRowIndex);
+            modifyPartForm.Show(this);
+            Hide();
+        }
     }
 
     private void PartAddButton_Click(object sender, EventArgs e)
@@ -39,16 +95,12 @@ public partial class MainScreen : Form
         Hide();
     }
 
-    private void MainExitButton_Click(object sender, EventArgs e)
-    {
-        Application.Exit();
-    }
-
     private void PartSearch_TextChanged(object sender, EventArgs e)
     {
 
     }
 
+    // Product Controls
     private void ProductAddButton_Click(object sender, EventArgs e)
     {
         AddProductForm addProductForm = new()
@@ -71,7 +123,7 @@ public partial class MainScreen : Form
 
     private void ProductDeleteButton_Click(object sender, EventArgs e)
     {
-        DeleteDialog dialog = new();
-        dialog.ShowDialog();
+        //DeleteDialog dialog = new();
+        //dialog.ShowDialog();
     }
 }

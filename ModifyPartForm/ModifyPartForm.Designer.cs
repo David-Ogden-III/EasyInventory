@@ -269,6 +269,7 @@
             Name = "ModifyPartForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Part";
+            Load += ModifyPartForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }
