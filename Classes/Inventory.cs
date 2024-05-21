@@ -59,6 +59,6 @@ public static class Inventory
 
     public static void UpdatePart(int rowIndex, Part updatedPart)
     {
-        //Todo: update parameter and function body
+        AllParts.Insert(rowIndex, updatedPart);
     }
 }

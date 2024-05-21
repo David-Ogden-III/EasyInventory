@@ -10,11 +10,13 @@ namespace C968_Ogden
             PartToModify = partToModify;
             PartType = partType;
             SelectedRowIndex = selectedRowIndex;
+            IsOutsourced = (partType == "Outsourced");
         }
 
         private Part PartToModify { get; set; }
         private string PartType { get; set; }
         private int SelectedRowIndex { get; set; }
+        private bool IsOutsourced{ get; set; }
 
         private void ModifyPartForm_Load(object sender, EventArgs e)
         {
@@ -24,11 +26,40 @@ namespace C968_Ogden
             ModifyPartPriceInput.Text = PartToModify.Price.ToString();
             ModifyPartMinInput.Text = PartToModify.Min.ToString();
             ModifyPartMaxInput.Text = PartToModify.Max.ToString();
+            ModifyPartManufactureInput.Text = (IsOutsourced ? ((dynamic)PartToModify).CompanyName.ToString() : ((dynamic)PartToModify).MachineId.ToString());
+
+            if (IsOutsourced)
+            {
+                ModifyPartInHouseRadio.Checked = false;
+                ModifyPartOutsourcedRadio.Checked = true;
+            }
+            Debug.WriteLine(Inventory.AllParts.Contains(PartToModify));
 
         }
 
         private void ModifyPartSave_Click(object sender, EventArgs e)
         {
+            int id = Convert.ToInt32(ModifyPartIdInput.Text);
+            string partName = ModifyPartNameInput.Text;
+            int inventory = Convert.ToInt32(ModifyPartInventoryInput.Text);
+            decimal price = Convert.ToDecimal(ModifyPartPriceInput.Text);
+            int min = Convert.ToInt32(ModifyPartMinInput.Text);
+            int max = Convert.ToInt32(ModifyPartMaxInput.Text);
+            dynamic newPart;
+
+            if (ModifyPartOutsourcedRadio.Checked)
+            {
+                string compName = ModifyPartManufactureInput.Text;
+                newPart = new Outsourced(partName, price, inventory, min, max, compName, id);
+            }
+            else
+            {
+                int machineId = Convert.ToInt32(ModifyPartManufactureInput.Text);
+                newPart = new InHouse(partName, price, inventory, min, max, machineId, id);
+            }
+            Inventory.DeletePart(PartToModify);
+            Inventory.UpdatePart(SelectedRowIndex, newPart);
+
             var MainScreen = Tag as MainScreen;
             MainScreen?.Show();
             Close();
