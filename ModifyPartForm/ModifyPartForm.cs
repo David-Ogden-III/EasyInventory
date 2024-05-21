@@ -1,4 +1,4 @@
-﻿using System.Diagnostics.Eventing.Reader;
+﻿using System.Diagnostics;
 
 namespace C968_Ogden
 {
@@ -37,6 +37,7 @@ namespace C968_Ogden
         private void ModifyPartCancel_Click(object sender, EventArgs e)
         {
             var MainScreen = Tag as MainScreen;
+            if (MainScreen != null) Debug.WriteLine(MainScreen.Name);
             MainScreen?.Show();
 
             Close();
@@ -46,18 +47,14 @@ namespace C968_Ogden
         {
             if (ModifyPartOutsourcedRadio.Checked)
             {
-                ModifyPartMachineIdInput.Hide();
                 ModifyPartMachineIdLabel.Hide();
-                ModifyPartCompanyInput.Show();
                 ModifyPartCompanyNameLabel.Show();
             }
         }
 
         private void ModifyPartInHouseRadio_CheckedChanged(object sender, EventArgs e)
         {
-            ModifyPartCompanyInput.Hide();
             ModifyPartCompanyNameLabel.Hide();
-            ModifyPartMachineIdInput.Show();
             ModifyPartMachineIdLabel.Show();
         }
     }

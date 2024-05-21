@@ -57,7 +57,7 @@ public partial class MainScreen : Form
         int selectedRowIndex = PartTable.CurrentRow.Index;
         int partId = Convert.ToInt32(PartTable[0, selectedRowIndex].Value);
         string? partType = PartTable.CurrentRow.DataBoundItem.ToString();
-        dynamic? partToModify = null;
+        Part? partToModify = null;
 
         foreach (Part part in Inventory.AllParts)
         {
@@ -76,13 +76,13 @@ public partial class MainScreen : Form
             }
         }
 
-
-        if (partToModify != null)
-        {
-            ModifyPartForm modifyPartForm = new(partToModify, partType, selectedRowIndex);
+        if (partToModify != null && partType != null) {
+            ModifyPartForm modifyPartForm = new(partToModify, partType, selectedRowIndex)
+            { Tag = this };
             modifyPartForm.Show(this);
             Hide();
         }
+        
     }
 
     private void PartAddButton_Click(object sender, EventArgs e)

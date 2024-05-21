@@ -24,12 +24,12 @@
 
             if (OutsourcedRadio.Checked)
             {
-                string compName = AddPartCompanyInput.Text;
+                string compName = AddPartManufactureInput.Text;
                 newPart = new Outsourced(partName, price, inventory, min, max, compName);
             }
             else
             {
-                int machineId = Convert.ToInt32(AddPartMachineIdInput.Text);
+                int machineId = Convert.ToInt32(AddPartManufactureInput.Text);
                 newPart = new InHouse(partName, price, inventory, min, max, machineId);
             }
             Inventory.AllParts.Add(newPart);
@@ -49,17 +49,13 @@
 
         private void OutsourcedRadio_CheckedChanged(object sender, EventArgs e)
         {
-            AddPartMachineIdInput.Hide();
             AddPartMachineIdLabel.Hide();
-            AddPartCompanyInput.Show();
             AddPartCompanyNameLabel.Show();
         }
 
         private void InHouseRadio_CheckedChanged(object sender, EventArgs e)
         {
-            AddPartCompanyInput.Hide();
             AddPartCompanyNameLabel.Hide();
-            AddPartMachineIdInput.Show();
             AddPartMachineIdLabel.Show();
         }
     }

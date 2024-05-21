@@ -40,7 +40,7 @@
             AddPartPriceLabel = new Label();
             AddPartInventoryLabel = new Label();
             AddPartPriceInput = new TextBox();
-            AddPartMachineIdInput = new TextBox();
+            AddPartManufactureInput = new TextBox();
             AddPartInventoryInput = new TextBox();
             AddPartNameInput = new TextBox();
             AddPartMinInput = new TextBox();
@@ -48,7 +48,6 @@
             AddPartSave = new Button();
             AddPartCancel = new Button();
             AddPartCompanyNameLabel = new Label();
-            AddPartCompanyInput = new TextBox();
             SuspendLayout();
             // 
             // InHouseRadio
@@ -166,12 +165,12 @@
             AddPartPriceInput.Size = new Size(140, 23);
             AddPartPriceInput.TabIndex = 22;
             // 
-            // AddPartMachineIdInput
+            // AddPartManufactureInput
             // 
-            AddPartMachineIdInput.Location = new Point(177, 342);
-            AddPartMachineIdInput.Name = "AddPartMachineIdInput";
-            AddPartMachineIdInput.Size = new Size(140, 23);
-            AddPartMachineIdInput.TabIndex = 23;
+            AddPartManufactureInput.Location = new Point(177, 342);
+            AddPartManufactureInput.Name = "AddPartManufactureInput";
+            AddPartManufactureInput.Size = new Size(140, 23);
+            AddPartManufactureInput.TabIndex = 23;
             // 
             // AddPartInventoryInput
             // 
@@ -231,27 +230,18 @@
             AddPartCompanyNameLabel.Text = "Company Name";
             AddPartCompanyNameLabel.Visible = false;
             // 
-            // AddPartCompanyInput
-            // 
-            AddPartCompanyInput.Location = new Point(177, 342);
-            AddPartCompanyInput.Name = "AddPartCompanyInput";
-            AddPartCompanyInput.Size = new Size(140, 23);
-            AddPartCompanyInput.TabIndex = 31;
-            AddPartCompanyInput.Visible = false;
-            // 
             // AddPartForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(405, 450);
-            Controls.Add(AddPartCompanyInput);
             Controls.Add(AddPartCancel);
             Controls.Add(AddPartSave);
             Controls.Add(AddPartMaxInput);
             Controls.Add(AddPartMinInput);
             Controls.Add(AddPartNameInput);
             Controls.Add(AddPartInventoryInput);
-            Controls.Add(AddPartMachineIdInput);
+            Controls.Add(AddPartManufactureInput);
             Controls.Add(AddPartPriceInput);
             Controls.Add(AddPartInventoryLabel);
             Controls.Add(AddPartPriceLabel);
@@ -288,7 +278,7 @@
         private Label AddPartPriceLabel;
         private Label AddPartInventoryLabel;
         private TextBox AddPartPriceInput;
-        private TextBox AddPartMachineIdInput;
+        private TextBox AddPartManufactureInput;
         private TextBox AddPartInventoryInput;
         private TextBox AddPartNameInput;
         private TextBox AddPartMinInput;
@@ -296,6 +286,5 @@
         private Button AddPartSave;
         private Button AddPartCancel;
         private Label AddPartCompanyNameLabel;
-        private TextBox AddPartCompanyInput;
     }
 }

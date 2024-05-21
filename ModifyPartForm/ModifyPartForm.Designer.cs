@@ -28,14 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            ModifyPartCompanyInput = new TextBox();
             ModifyPartCancel = new Button();
             ModifyPartSave = new Button();
             ModifyPartMaxInput = new TextBox();
             ModifyPartMinInput = new TextBox();
             ModifyPartNameInput = new TextBox();
             ModifyPartInventoryInput = new TextBox();
-            ModifyPartMachineIdInput = new TextBox();
+            ModifyPartManufactureInput = new TextBox();
             ModifyPartPriceInput = new TextBox();
             ModifyPartInventoryLabel = new Label();
             ModifyPartPriceLabel = new Label();
@@ -51,14 +50,6 @@
             ModifyPartCompanyNameLabel = new Label();
             SuspendLayout();
             // 
-            // ModifyPartCompanyInput
-            // 
-            ModifyPartCompanyInput.Location = new Point(177, 342);
-            ModifyPartCompanyInput.Name = "ModifyPartCompanyInput";
-            ModifyPartCompanyInput.Size = new Size(140, 23);
-            ModifyPartCompanyInput.TabIndex = 52;
-            ModifyPartCompanyInput.Visible = false;
-            // 
             // ModifyPartCancel
             // 
             ModifyPartCancel.Location = new Point(223, 395);
@@ -67,7 +58,7 @@
             ModifyPartCancel.TabIndex = 50;
             ModifyPartCancel.Text = "Cancel";
             ModifyPartCancel.UseVisualStyleBackColor = true;
-            ModifyPartCancel.Click += this.ModifyPartCancel_Click;
+            ModifyPartCancel.Click += ModifyPartCancel_Click;
             // 
             // ModifyPartSave
             // 
@@ -77,7 +68,7 @@
             ModifyPartSave.TabIndex = 49;
             ModifyPartSave.Text = "Save";
             ModifyPartSave.UseVisualStyleBackColor = true;
-            ModifyPartSave.Click += this.ModifyPartSave_Click;
+            ModifyPartSave.Click += ModifyPartSave_Click;
             // 
             // ModifyPartMaxInput
             // 
@@ -107,12 +98,12 @@
             ModifyPartInventoryInput.Size = new Size(140, 23);
             ModifyPartInventoryInput.TabIndex = 45;
             // 
-            // ModifyPartMachineIdInput
+            // ModifyPartManufactureInput
             // 
-            ModifyPartMachineIdInput.Location = new Point(177, 342);
-            ModifyPartMachineIdInput.Name = "ModifyPartMachineIdInput";
-            ModifyPartMachineIdInput.Size = new Size(140, 23);
-            ModifyPartMachineIdInput.TabIndex = 44;
+            ModifyPartManufactureInput.Location = new Point(177, 342);
+            ModifyPartManufactureInput.Name = "ModifyPartManufactureInput";
+            ModifyPartManufactureInput.Size = new Size(140, 23);
+            ModifyPartManufactureInput.TabIndex = 44;
             // 
             // ModifyPartPriceInput
             // 
@@ -205,7 +196,7 @@
             ModifyPartOutsourcedRadio.TabIndex = 33;
             ModifyPartOutsourcedRadio.Text = "Outsourced";
             ModifyPartOutsourcedRadio.UseVisualStyleBackColor = true;
-            ModifyPartOutsourcedRadio.CheckedChanged += this.ModifyPartOutsourcedRadio_CheckedChanged;
+            ModifyPartOutsourcedRadio.CheckedChanged += ModifyPartOutsourcedRadio_CheckedChanged;
             // 
             // ModifyPartInHouseRadio
             // 
@@ -218,7 +209,7 @@
             ModifyPartInHouseRadio.TabStop = true;
             ModifyPartInHouseRadio.Text = "In-House";
             ModifyPartInHouseRadio.UseVisualStyleBackColor = true;
-            ModifyPartInHouseRadio.CheckedChanged += this.ModifyPartInHouseRadio_CheckedChanged;
+            ModifyPartInHouseRadio.CheckedChanged += ModifyPartInHouseRadio_CheckedChanged;
             // 
             // ModifyPartMachineIdLabel
             // 
@@ -263,8 +254,7 @@
             Controls.Add(ModifyPartInHouseRadio);
             Controls.Add(ModifyPartMachineIdLabel);
             Controls.Add(ModifyPartCompanyNameLabel);
-            Controls.Add(ModifyPartCompanyInput);
-            Controls.Add(ModifyPartMachineIdInput);
+            Controls.Add(ModifyPartManufactureInput);
             Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             Name = "ModifyPartForm";
             StartPosition = FormStartPosition.CenterScreen;
@@ -276,14 +266,13 @@
 
         #endregion
 
-        private TextBox ModifyPartCompanyInput;
         private Button ModifyPartCancel;
         private Button ModifyPartSave;
         private TextBox ModifyPartMaxInput;
         private TextBox ModifyPartMinInput;
         private TextBox ModifyPartNameInput;
         private TextBox ModifyPartInventoryInput;
-        private TextBox ModifyPartMachineIdInput;
+        private TextBox ModifyPartManufactureInput;
         private TextBox ModifyPartPriceInput;
         private Label ModifyPartInventoryLabel;
         private Label ModifyPartPriceLabel;
