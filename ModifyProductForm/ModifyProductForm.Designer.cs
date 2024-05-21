@@ -33,12 +33,6 @@
             AssociatedPartsLabel = new Label();
             RemoveAsscPartButton = new Button();
             AssociatedPartsTable = new DataGridView();
-            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn4 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn5 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn6 = new DataGridViewTextBoxColumn();
             AddProductMaxInput = new TextBox();
             AddProductMinInput = new TextBox();
             AddProductNameInput = new TextBox();
@@ -57,12 +51,6 @@
             SearchCandidatePartButton = new Button();
             SearchCandidatePartsInput = new TextBox();
             AllCandidatePartTable = new DataGridView();
-            partID = new DataGridViewTextBoxColumn();
-            partName = new DataGridViewTextBoxColumn();
-            partInventory = new DataGridViewTextBoxColumn();
-            partPrice = new DataGridViewTextBoxColumn();
-            partMin = new DataGridViewTextBoxColumn();
-            partMax = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)AssociatedPartsTable).BeginInit();
             ((System.ComponentModel.ISupportInitialize)AllCandidatePartTable).BeginInit();
             SuspendLayout();
@@ -116,7 +104,6 @@
             AssociatedPartsTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             AssociatedPartsTable.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             AssociatedPartsTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            AssociatedPartsTable.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4, dataGridViewTextBoxColumn5, dataGridViewTextBoxColumn6 });
             AssociatedPartsTable.Location = new Point(320, 257);
             AssociatedPartsTable.MultiSelect = false;
             AssociatedPartsTable.Name = "AssociatedPartsTable";
@@ -125,48 +112,6 @@
             AssociatedPartsTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             AssociatedPartsTable.Size = new Size(450, 138);
             AssociatedPartsTable.TabIndex = 68;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            dataGridViewTextBoxColumn1.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewTextBoxColumn1.HeaderText = "Part ID";
-            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            dataGridViewTextBoxColumn2.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewTextBoxColumn2.HeaderText = "Name";
-            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            dataGridViewTextBoxColumn3.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewTextBoxColumn3.HeaderText = "Inventory";
-            dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            dataGridViewTextBoxColumn4.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewTextBoxColumn4.HeaderText = "Price";
-            dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            dataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            dataGridViewTextBoxColumn5.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewTextBoxColumn5.HeaderText = "Min";
-            dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            dataGridViewTextBoxColumn5.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            dataGridViewTextBoxColumn6.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewTextBoxColumn6.HeaderText = "Max";
-            dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            dataGridViewTextBoxColumn6.ReadOnly = true;
             // 
             // AddProductMaxInput
             // 
@@ -339,48 +284,6 @@
             AllCandidatePartTable.Size = new Size(450, 138);
             AllCandidatePartTable.TabIndex = 50;
             // 
-            // partID
-            // 
-            partID.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            partID.HeaderText = "Part ID";
-            partID.Name = "partID";
-            partID.ReadOnly = true;
-            // 
-            // partName
-            // 
-            partName.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            partName.HeaderText = "Name";
-            partName.Name = "partName";
-            partName.ReadOnly = true;
-            // 
-            // partInventory
-            // 
-            partInventory.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            partInventory.HeaderText = "Inventory";
-            partInventory.Name = "partInventory";
-            partInventory.ReadOnly = true;
-            // 
-            // partPrice
-            // 
-            partPrice.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            partPrice.HeaderText = "Price";
-            partPrice.Name = "partPrice";
-            partPrice.ReadOnly = true;
-            // 
-            // partMin
-            // 
-            partMin.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            partMin.HeaderText = "Min";
-            partMin.Name = "partMin";
-            partMin.ReadOnly = true;
-            // 
-            // partMax
-            // 
-            partMax.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            partMax.HeaderText = "Max";
-            partMax.Name = "partMax";
-            partMax.ReadOnly = true;
-            // 
             // ModifyProductForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -426,12 +329,6 @@
         private Label AssociatedPartsLabel;
         private Button RemoveAsscPartButton;
         private DataGridView AssociatedPartsTable;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private TextBox AddProductMaxInput;
         private TextBox AddProductMinInput;
         private TextBox AddProductNameInput;
@@ -450,11 +347,5 @@
         private Button SearchCandidatePartButton;
         private TextBox SearchCandidatePartsInput;
         private DataGridView AllCandidatePartTable;
-        private DataGridViewTextBoxColumn partID;
-        private DataGridViewTextBoxColumn partName;
-        private DataGridViewTextBoxColumn partInventory;
-        private DataGridViewTextBoxColumn partPrice;
-        private DataGridViewTextBoxColumn partMin;
-        private DataGridViewTextBoxColumn partMax;
     }
 }

@@ -87,7 +87,6 @@
             AddPartLabel.TabIndex = 13;
             AddPartLabel.Text = "Add Part";
             AddPartLabel.TextAlign = ContentAlignment.BottomLeft;
-            AddPartLabel.Click += PartTableLabel_Click;
             // 
             // AddPartIdLabel
             // 
@@ -97,7 +96,6 @@
             AddPartIdLabel.Size = new Size(20, 15);
             AddPartIdLabel.TabIndex = 14;
             AddPartIdLabel.Text = "ID";
-            AddPartIdLabel.Click += label1_Click;
             // 
             // AddPartIdInput
             // 

@@ -42,7 +42,6 @@
             DeleteDialogLabel.Size = new Size(50, 15);
             DeleteDialogLabel.TabIndex = 0;
             DeleteDialogLabel.Text = "Delete?";
-            DeleteDialogLabel.Click += label1_Click;
             // 
             // DialogCancel
             // 
