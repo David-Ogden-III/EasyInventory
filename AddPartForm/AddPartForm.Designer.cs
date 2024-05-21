@@ -83,7 +83,6 @@
             AddPartLabel.Location = new Point(12, 9);
             AddPartLabel.Name = "AddPartLabel";
             AddPartLabel.Size = new Size(88, 28);
-            AddPartLabel.TabIndex = 13;
             AddPartLabel.Text = "Add Part";
             AddPartLabel.TextAlign = ContentAlignment.BottomLeft;
             // 
@@ -93,7 +92,6 @@
             AddPartIdLabel.Location = new Point(129, 100);
             AddPartIdLabel.Name = "AddPartIdLabel";
             AddPartIdLabel.Size = new Size(20, 15);
-            AddPartIdLabel.TabIndex = 14;
             AddPartIdLabel.Text = "ID";
             // 
             // AddPartIdInput
@@ -102,7 +100,6 @@
             AddPartIdInput.Location = new Point(177, 96);
             AddPartIdInput.Name = "AddPartIdInput";
             AddPartIdInput.Size = new Size(140, 23);
-            AddPartIdInput.TabIndex = 15;
             // 
             // AddPartNameLabel
             // 
@@ -110,7 +107,6 @@
             AddPartNameLabel.Location = new Point(109, 141);
             AddPartNameLabel.Name = "AddPartNameLabel";
             AddPartNameLabel.Size = new Size(40, 15);
-            AddPartNameLabel.TabIndex = 16;
             AddPartNameLabel.Text = "Name";
             // 
             // AddPartMachineIdLabel
@@ -119,7 +115,6 @@
             AddPartMachineIdLabel.Location = new Point(79, 346);
             AddPartMachineIdLabel.Name = "AddPartMachineIdLabel";
             AddPartMachineIdLabel.Size = new Size(70, 15);
-            AddPartMachineIdLabel.TabIndex = 17;
             AddPartMachineIdLabel.Text = "Machine ID";
             // 
             // AddPartMaxLabel
@@ -128,7 +123,6 @@
             AddPartMaxLabel.Location = new Point(118, 305);
             AddPartMaxLabel.Name = "AddPartMaxLabel";
             AddPartMaxLabel.Size = new Size(31, 15);
-            AddPartMaxLabel.TabIndex = 18;
             AddPartMaxLabel.Text = "Max";
             // 
             // AddPartMinLabel
@@ -137,7 +131,6 @@
             AddPartMinLabel.Location = new Point(121, 264);
             AddPartMinLabel.Name = "AddPartMinLabel";
             AddPartMinLabel.Size = new Size(28, 15);
-            AddPartMinLabel.TabIndex = 19;
             AddPartMinLabel.Text = "Min";
             // 
             // AddPartPriceLabel
@@ -146,7 +139,6 @@
             AddPartPriceLabel.Location = new Point(79, 223);
             AddPartPriceLabel.Name = "AddPartPriceLabel";
             AddPartPriceLabel.Size = new Size(70, 15);
-            AddPartPriceLabel.TabIndex = 20;
             AddPartPriceLabel.Text = "Price / Cost";
             // 
             // AddPartInventoryLabel
@@ -155,7 +147,6 @@
             AddPartInventoryLabel.Location = new Point(87, 182);
             AddPartInventoryLabel.Name = "AddPartInventoryLabel";
             AddPartInventoryLabel.Size = new Size(62, 15);
-            AddPartInventoryLabel.TabIndex = 21;
             AddPartInventoryLabel.Text = "Inventory";
             // 
             // AddPartPriceInput
@@ -163,49 +154,49 @@
             AddPartPriceInput.Location = new Point(177, 219);
             AddPartPriceInput.Name = "AddPartPriceInput";
             AddPartPriceInput.Size = new Size(140, 23);
-            AddPartPriceInput.TabIndex = 22;
+            AddPartPriceInput.TabIndex = 4;
             // 
             // AddPartManufactureInput
             // 
             AddPartManufactureInput.Location = new Point(177, 342);
             AddPartManufactureInput.Name = "AddPartManufactureInput";
             AddPartManufactureInput.Size = new Size(140, 23);
-            AddPartManufactureInput.TabIndex = 23;
+            AddPartManufactureInput.TabIndex = 7;
             // 
             // AddPartInventoryInput
             // 
             AddPartInventoryInput.Location = new Point(177, 178);
             AddPartInventoryInput.Name = "AddPartInventoryInput";
             AddPartInventoryInput.Size = new Size(140, 23);
-            AddPartInventoryInput.TabIndex = 24;
+            AddPartInventoryInput.TabIndex = 3;
             // 
             // AddPartNameInput
             // 
             AddPartNameInput.Location = new Point(177, 137);
             AddPartNameInput.Name = "AddPartNameInput";
             AddPartNameInput.Size = new Size(140, 23);
-            AddPartNameInput.TabIndex = 25;
+            AddPartNameInput.TabIndex = 2;
             // 
             // AddPartMinInput
             // 
             AddPartMinInput.Location = new Point(177, 260);
             AddPartMinInput.Name = "AddPartMinInput";
             AddPartMinInput.Size = new Size(140, 23);
-            AddPartMinInput.TabIndex = 26;
+            AddPartMinInput.TabIndex = 5;
             // 
             // AddPartMaxInput
             // 
             AddPartMaxInput.Location = new Point(177, 301);
             AddPartMaxInput.Name = "AddPartMaxInput";
             AddPartMaxInput.Size = new Size(140, 23);
-            AddPartMaxInput.TabIndex = 27;
+            AddPartMaxInput.TabIndex = 6;
             // 
             // AddPartSave
             // 
             AddPartSave.Location = new Point(130, 395);
             AddPartSave.Name = "AddPartSave";
             AddPartSave.Size = new Size(51, 23);
-            AddPartSave.TabIndex = 28;
+            AddPartSave.TabIndex = 8;
             AddPartSave.Text = "Save";
             AddPartSave.UseVisualStyleBackColor = true;
             AddPartSave.Click += AddPartSave_Click;
@@ -215,7 +206,7 @@
             AddPartCancel.Location = new Point(223, 395);
             AddPartCancel.Name = "AddPartCancel";
             AddPartCancel.Size = new Size(51, 23);
-            AddPartCancel.TabIndex = 29;
+            AddPartCancel.TabIndex = 9;
             AddPartCancel.Text = "Cancel";
             AddPartCancel.UseVisualStyleBackColor = true;
             AddPartCancel.Click += AddPartCancel_Click;
@@ -226,7 +217,6 @@
             AddPartCompanyNameLabel.Location = new Point(55, 346);
             AddPartCompanyNameLabel.Name = "AddPartCompanyNameLabel";
             AddPartCompanyNameLabel.Size = new Size(94, 15);
-            AddPartCompanyNameLabel.TabIndex = 30;
             AddPartCompanyNameLabel.Text = "Company Name";
             AddPartCompanyNameLabel.Visible = false;
             // 

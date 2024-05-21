@@ -55,7 +55,7 @@
             ModifyPartCancel.Location = new Point(223, 395);
             ModifyPartCancel.Name = "ModifyPartCancel";
             ModifyPartCancel.Size = new Size(51, 23);
-            ModifyPartCancel.TabIndex = 50;
+            ModifyPartCancel.TabIndex = 9;
             ModifyPartCancel.Text = "Cancel";
             ModifyPartCancel.UseVisualStyleBackColor = true;
             ModifyPartCancel.Click += ModifyPartCancel_Click;
@@ -65,7 +65,7 @@
             ModifyPartSave.Location = new Point(130, 395);
             ModifyPartSave.Name = "ModifyPartSave";
             ModifyPartSave.Size = new Size(51, 23);
-            ModifyPartSave.TabIndex = 49;
+            ModifyPartSave.TabIndex = 8;
             ModifyPartSave.Text = "Save";
             ModifyPartSave.UseVisualStyleBackColor = true;
             ModifyPartSave.Click += ModifyPartSave_Click;
@@ -75,42 +75,42 @@
             ModifyPartMaxInput.Location = new Point(177, 301);
             ModifyPartMaxInput.Name = "ModifyPartMaxInput";
             ModifyPartMaxInput.Size = new Size(140, 23);
-            ModifyPartMaxInput.TabIndex = 48;
+            ModifyPartMaxInput.TabIndex = 6;
             // 
             // ModifyPartMinInput
             // 
             ModifyPartMinInput.Location = new Point(177, 260);
             ModifyPartMinInput.Name = "ModifyPartMinInput";
             ModifyPartMinInput.Size = new Size(140, 23);
-            ModifyPartMinInput.TabIndex = 47;
+            ModifyPartMinInput.TabIndex = 5;
             // 
             // ModifyPartNameInput
             // 
             ModifyPartNameInput.Location = new Point(177, 137);
             ModifyPartNameInput.Name = "ModifyPartNameInput";
             ModifyPartNameInput.Size = new Size(140, 23);
-            ModifyPartNameInput.TabIndex = 46;
+            ModifyPartNameInput.TabIndex = 2;
             // 
             // ModifyPartInventoryInput
             // 
             ModifyPartInventoryInput.Location = new Point(177, 178);
             ModifyPartInventoryInput.Name = "ModifyPartInventoryInput";
             ModifyPartInventoryInput.Size = new Size(140, 23);
-            ModifyPartInventoryInput.TabIndex = 45;
+            ModifyPartInventoryInput.TabIndex = 3;
             // 
             // ModifyPartManufactureInput
             // 
             ModifyPartManufactureInput.Location = new Point(177, 342);
             ModifyPartManufactureInput.Name = "ModifyPartManufactureInput";
             ModifyPartManufactureInput.Size = new Size(140, 23);
-            ModifyPartManufactureInput.TabIndex = 44;
+            ModifyPartManufactureInput.TabIndex = 7;
             // 
             // ModifyPartPriceInput
             // 
             ModifyPartPriceInput.Location = new Point(177, 219);
             ModifyPartPriceInput.Name = "ModifyPartPriceInput";
             ModifyPartPriceInput.Size = new Size(140, 23);
-            ModifyPartPriceInput.TabIndex = 43;
+            ModifyPartPriceInput.TabIndex = 4;
             // 
             // ModifyPartInventoryLabel
             // 
@@ -118,7 +118,6 @@
             ModifyPartInventoryLabel.Location = new Point(87, 182);
             ModifyPartInventoryLabel.Name = "ModifyPartInventoryLabel";
             ModifyPartInventoryLabel.Size = new Size(62, 15);
-            ModifyPartInventoryLabel.TabIndex = 42;
             ModifyPartInventoryLabel.Text = "Inventory";
             // 
             // ModifyPartPriceLabel
@@ -127,7 +126,6 @@
             ModifyPartPriceLabel.Location = new Point(79, 223);
             ModifyPartPriceLabel.Name = "ModifyPartPriceLabel";
             ModifyPartPriceLabel.Size = new Size(70, 15);
-            ModifyPartPriceLabel.TabIndex = 41;
             ModifyPartPriceLabel.Text = "Price / Cost";
             // 
             // ModifyPartMinLabel
@@ -136,7 +134,6 @@
             ModifyPartMinLabel.Location = new Point(121, 264);
             ModifyPartMinLabel.Name = "ModifyPartMinLabel";
             ModifyPartMinLabel.Size = new Size(28, 15);
-            ModifyPartMinLabel.TabIndex = 40;
             ModifyPartMinLabel.Text = "Min";
             // 
             // ModifyPartMaxLabel
@@ -145,7 +142,6 @@
             ModifyPartMaxLabel.Location = new Point(118, 305);
             ModifyPartMaxLabel.Name = "ModifyPartMaxLabel";
             ModifyPartMaxLabel.Size = new Size(31, 15);
-            ModifyPartMaxLabel.TabIndex = 39;
             ModifyPartMaxLabel.Text = "Max";
             // 
             // ModifyPartNameLabel
@@ -154,7 +150,6 @@
             ModifyPartNameLabel.Location = new Point(109, 141);
             ModifyPartNameLabel.Name = "ModifyPartNameLabel";
             ModifyPartNameLabel.Size = new Size(40, 15);
-            ModifyPartNameLabel.TabIndex = 37;
             ModifyPartNameLabel.Text = "Name";
             // 
             // ModifyPartIdInput
@@ -163,7 +158,6 @@
             ModifyPartIdInput.Location = new Point(177, 96);
             ModifyPartIdInput.Name = "ModifyPartIdInput";
             ModifyPartIdInput.Size = new Size(140, 23);
-            ModifyPartIdInput.TabIndex = 36;
             // 
             // ModifyPartIdLabel
             // 
@@ -171,7 +165,6 @@
             ModifyPartIdLabel.Location = new Point(129, 100);
             ModifyPartIdLabel.Name = "ModifyPartIdLabel";
             ModifyPartIdLabel.Size = new Size(20, 15);
-            ModifyPartIdLabel.TabIndex = 35;
             ModifyPartIdLabel.Text = "ID";
             // 
             // ModifyPartLabel
@@ -183,7 +176,6 @@
             ModifyPartLabel.Location = new Point(12, 9);
             ModifyPartLabel.Name = "ModifyPartLabel";
             ModifyPartLabel.Size = new Size(114, 28);
-            ModifyPartLabel.TabIndex = 34;
             ModifyPartLabel.Text = "Modify Part";
             ModifyPartLabel.TextAlign = ContentAlignment.BottomLeft;
             // 
@@ -193,7 +185,7 @@
             ModifyPartOutsourcedRadio.Location = new Point(206, 55);
             ModifyPartOutsourcedRadio.Name = "ModifyPartOutsourcedRadio";
             ModifyPartOutsourcedRadio.Size = new Size(90, 19);
-            ModifyPartOutsourcedRadio.TabIndex = 33;
+            ModifyPartOutsourcedRadio.TabIndex = 1;
             ModifyPartOutsourcedRadio.Text = "Outsourced";
             ModifyPartOutsourcedRadio.UseVisualStyleBackColor = true;
             ModifyPartOutsourcedRadio.CheckedChanged += ModifyPartOutsourcedRadio_CheckedChanged;
@@ -205,7 +197,7 @@
             ModifyPartInHouseRadio.Location = new Point(108, 55);
             ModifyPartInHouseRadio.Name = "ModifyPartInHouseRadio";
             ModifyPartInHouseRadio.Size = new Size(76, 19);
-            ModifyPartInHouseRadio.TabIndex = 32;
+            ModifyPartInHouseRadio.TabIndex = 0;
             ModifyPartInHouseRadio.TabStop = true;
             ModifyPartInHouseRadio.Text = "In-House";
             ModifyPartInHouseRadio.UseVisualStyleBackColor = true;
@@ -217,7 +209,6 @@
             ModifyPartMachineIdLabel.Location = new Point(79, 346);
             ModifyPartMachineIdLabel.Name = "ModifyPartMachineIdLabel";
             ModifyPartMachineIdLabel.Size = new Size(70, 15);
-            ModifyPartMachineIdLabel.TabIndex = 38;
             ModifyPartMachineIdLabel.Text = "Machine ID";
             // 
             // ModifyPartCompanyNameLabel
@@ -226,7 +217,6 @@
             ModifyPartCompanyNameLabel.Location = new Point(55, 346);
             ModifyPartCompanyNameLabel.Name = "ModifyPartCompanyNameLabel";
             ModifyPartCompanyNameLabel.Size = new Size(94, 15);
-            ModifyPartCompanyNameLabel.TabIndex = 51;
             ModifyPartCompanyNameLabel.Text = "Company Name";
             ModifyPartCompanyNameLabel.Visible = false;
             // 
