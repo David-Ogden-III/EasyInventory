@@ -50,6 +50,7 @@ public partial class MainScreen : Form
             DeleteDialog dialog = new(partToDelete: partToDelete);
             dialog.ShowDialog();
         }
+        PartTable.ClearSelection();
     }
 
     private void PartModifyButton_Click(object sender, EventArgs e)
@@ -76,13 +77,14 @@ public partial class MainScreen : Form
             }
         }
 
-        if (partToModify != null && partType != null) {
+        if (partToModify != null && partType != null)
+        {
             ModifyPartForm modifyPartForm = new(partToModify, partType, selectedRowIndex)
             { Tag = this };
             modifyPartForm.Show(this);
             Hide();
         }
-        
+        PartTable.ClearSelection();
     }
 
     private void PartAddButton_Click(object sender, EventArgs e)
@@ -93,11 +95,65 @@ public partial class MainScreen : Form
         };
         addPartForm.Show(this);
         Hide();
+        PartTable.ClearSelection();
+    }
+    private void PartSearchButton_Click(object sender, EventArgs e)
+    {
+        PartTable.ClearSelection();
+        string rawSearchParams = PartSearch.Text;
+        string searchParams = rawSearchParams.ToLower().Trim();
+
+
+        for (int i = 0; i < PartTable.Rows.Count; i++)
+        {
+            PartTable.Rows[i].Visible = true;
+        }
+
+        if (searchParams == "")
+        {
+            return;
+        }
+
+        Part? foundPart = null;
+        if (int.TryParse(searchParams, out int id))
+        {
+            foundPart = Inventory.LookupPart(id);
+        }
+        else
+        {
+            foundPart = Inventory.LookupPart(searchParams);
+        }
+
+        if (foundPart != null)
+        {
+            for (var i = 0; i < PartTable.Rows.Count; i++)
+            {
+                int tempId = Convert.ToInt32(PartTable[0, i].Value);
+                if (tempId != foundPart.PartId)
+                {
+                    CurrencyManager? currencyManager = (CurrencyManager)BindingContext[PartTable.DataSource];
+                    currencyManager.SuspendBinding();
+                    PartTable.Rows[i].Visible = false;
+                    currencyManager.ResumeBinding();
+                }
+            }
+
+        }
+        else
+        {
+            NotFoundDialog dialog = new();
+            dialog.ShowDialog();
+        }
+        PartSearch.Text = "";
     }
 
-    private void PartSearch_TextChanged(object sender, EventArgs e)
+    private void PartSearchEnter(object sender, KeyEventArgs e)
     {
-
+        if (e.KeyCode == Keys.Enter)
+        {
+            PartSearchButton_Click(sender, new EventArgs());
+            e.SuppressKeyPress = true;
+        }
     }
 
     // Product Controls
@@ -126,4 +182,6 @@ public partial class MainScreen : Form
         //DeleteDialog dialog = new();
         //dialog.ShowDialog();
     }
+
+    
 }

@@ -35,8 +35,6 @@ partial class MainScreen
         ProductBindingSource = new BindingSource { DataSource = Inventory.Products};
         PartSearch = new TextBox();
         ProductSearch = new TextBox();
-        PartSearchButton = new Button();
-        ProductSearchButton = new Button();
         PartDeleteButton = new Button();
         PartModifyButton = new Button();
         PartAddButton = new Button();
@@ -47,6 +45,8 @@ partial class MainScreen
         ProductTableLabel = new Label();
         IMSLabel = new Label();
         MainExitButton = new Button();
+        PartSearchButton = new Button();
+        ProductSearchButton = new Button();
         ((System.ComponentModel.ISupportInitialize)PartTable).BeginInit();
         ((System.ComponentModel.ISupportInitialize)PartBindingSource).BeginInit();
         ((System.ComponentModel.ISupportInitialize)ProductTable).BeginInit();
@@ -94,7 +94,7 @@ partial class MainScreen
         PartSearch.PlaceholderText = "Search...";
         PartSearch.Size = new Size(150, 23);
         PartSearch.TabIndex = 2;
-        PartSearch.TextChanged += PartSearch_TextChanged;
+        PartSearch.KeyDown += PartSearchEnter;
         // 
         // ProductSearch
         // 
@@ -103,32 +103,6 @@ partial class MainScreen
         ProductSearch.PlaceholderText = "Search...";
         ProductSearch.Size = new Size(150, 23);
         ProductSearch.TabIndex = 3;
-        // 
-        // PartSearchButton
-        // 
-        PartSearchButton.BackColor = SystemColors.ButtonFace;
-        PartSearchButton.FlatAppearance.BorderColor = SystemColors.MenuHighlight;
-        PartSearchButton.FlatAppearance.BorderSize = 2;
-        PartSearchButton.ForeColor = SystemColors.ControlText;
-        PartSearchButton.Location = new Point(292, 76);
-        PartSearchButton.Name = "PartSearchButton";
-        PartSearchButton.Size = new Size(30, 23);
-        PartSearchButton.TabIndex = 4;
-        PartSearchButton.Text = "Go";
-        PartSearchButton.UseVisualStyleBackColor = false;
-        // 
-        // ProductSearchButton
-        // 
-        ProductSearchButton.BackColor = SystemColors.ButtonFace;
-        ProductSearchButton.FlatAppearance.BorderColor = SystemColors.MenuHighlight;
-        ProductSearchButton.FlatAppearance.BorderSize = 2;
-        ProductSearchButton.ForeColor = SystemColors.ControlText;
-        ProductSearchButton.Location = new Point(770, 76);
-        ProductSearchButton.Name = "ProductSearchButton";
-        ProductSearchButton.Size = new Size(30, 23);
-        ProductSearchButton.TabIndex = 5;
-        ProductSearchButton.Text = "Go";
-        ProductSearchButton.UseVisualStyleBackColor = false;
         // 
         // PartDeleteButton
         // 
@@ -236,11 +210,32 @@ partial class MainScreen
         MainExitButton.UseVisualStyleBackColor = true;
         MainExitButton.Click += MainExitButton_Click;
         // 
+        // PartSearchButton
+        // 
+        PartSearchButton.Location = new Point(292, 76);
+        PartSearchButton.Name = "PartSearchButton";
+        PartSearchButton.Size = new Size(30, 23);
+        PartSearchButton.TabIndex = 16;
+        PartSearchButton.Text = "Go";
+        PartSearchButton.UseVisualStyleBackColor = true;
+        PartSearchButton.Click += PartSearchButton_Click;
+        // 
+        // ProductSearchButton
+        // 
+        ProductSearchButton.Location = new Point(770, 76);
+        ProductSearchButton.Name = "ProductSearchButton";
+        ProductSearchButton.Size = new Size(30, 23);
+        ProductSearchButton.TabIndex = 17;
+        ProductSearchButton.Text = "Go";
+        ProductSearchButton.UseVisualStyleBackColor = true;
+        // 
         // MainScreen
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(984, 411);
+        Controls.Add(ProductSearchButton);
+        Controls.Add(PartSearchButton);
         Controls.Add(MainExitButton);
         Controls.Add(IMSLabel);
         Controls.Add(ProductTableLabel);
@@ -251,8 +246,6 @@ partial class MainScreen
         Controls.Add(PartAddButton);
         Controls.Add(PartModifyButton);
         Controls.Add(PartDeleteButton);
-        Controls.Add(ProductSearchButton);
-        Controls.Add(PartSearchButton);
         Controls.Add(ProductSearch);
         Controls.Add(PartSearch);
         Controls.Add(ProductTable);
@@ -275,8 +268,6 @@ partial class MainScreen
     private DataGridView ProductTable;
     private TextBox PartSearch;
     private TextBox ProductSearch;
-    private Button PartSearchButton;
-    private Button ProductSearchButton;
     private Button PartDeleteButton;
     private Button PartModifyButton;
     private Button PartAddButton;
@@ -289,4 +280,6 @@ partial class MainScreen
     private Button MainExitButton;
     private BindingSource PartBindingSource;
     private BindingSource ProductBindingSource;
+    private Button PartSearchButton;
+    private Button ProductSearchButton;
 }

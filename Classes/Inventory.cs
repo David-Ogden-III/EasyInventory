@@ -1,4 +1,6 @@
+using C968_Ogden;
 using System.ComponentModel;
+using System.Diagnostics;
 
 public static class Inventory
 {
@@ -52,9 +54,21 @@ public static class Inventory
         return AllParts.Remove(partToDelete);
     }
 
-    public static void LookupPart(int placeholder)
+    public static Part? LookupPart(int partID)
     {
-        //Todo: update parameter, function body, return type, and return statement
+        foreach (Part part in AllParts)
+        {
+            if (part.PartId == partID) { return part; }
+        }
+        return null;
+    }
+    public static Part? LookupPart(string partName)
+    {
+        foreach (Part part in AllParts)
+        {
+            if (part.Name.ToLower() == partName) { return part; }
+        }
+        return null;
     }
 
     public static void UpdatePart(int rowIndex, Part updatedPart)

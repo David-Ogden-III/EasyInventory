@@ -27,10 +27,6 @@ namespace C968_Ogden
                 bool success = Inventory.DeletePart(PartToDelete);
                 Debug.WriteLineIf(success, $"{partName} has been successfully deleted.");
             }
-            else
-            {
-
-            }
             Close();
         }
 
