@@ -183,5 +183,5 @@ public partial class MainScreen : Form
         //dialog.ShowDialog();
     }
 
-    
+
 }

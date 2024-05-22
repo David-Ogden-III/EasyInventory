@@ -16,7 +16,7 @@ namespace C968_Ogden
         private Part PartToModify { get; set; }
         private string PartType { get; set; }
         private int SelectedRowIndex { get; set; }
-        private bool IsOutsourced{ get; set; }
+        private bool IsOutsourced { get; set; }
 
         private void ModifyPartForm_Load(object sender, EventArgs e)
         {

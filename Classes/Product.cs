@@ -1,5 +1,5 @@
 using System.ComponentModel;
-public class Product(string name, decimal price, int inStock, int min, int max)
+public class Product(string name, decimal price, int inStock, int min, int max, int? id = null)
 {
 
     //Required Properties
@@ -23,7 +23,7 @@ public class Product(string name, decimal price, int inStock, int min, int max)
 
     // Helper Fields
     private static int idCounter = 0;
-    private readonly int id = IdIncrement();
+    private readonly int id = (id != null ? (int)id : IdIncrement());
 
 
 

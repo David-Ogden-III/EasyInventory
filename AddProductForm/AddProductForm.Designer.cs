@@ -1,4 +1,6 @@
-﻿namespace C968_Ogden
+﻿using System.ComponentModel;
+
+namespace C968_Ogden
 {
     partial class AddProductForm
     {
@@ -28,11 +30,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             AddProdAllPartsLabel = new Label();
             AddAssociatePartButton = new Button();
             SearchCandidatePartButton = new Button();
             SearchCandidatePartsInput = new TextBox();
             AllCandidatePartTable = new DataGridView();
+            CandidatePartsBindingSource = new BindingSource { DataSource = Inventory.AllParts};
+            AssociatedPartsBindingList = new BindingList<Part>();
             AddProductMaxInput = new TextBox();
             AddProductMinInput = new TextBox();
             AddProductNameInput = new TextBox();
@@ -52,6 +57,7 @@
             AddProductCancel = new Button();
             AddProductSave = new Button();
             ((System.ComponentModel.ISupportInitialize)AllCandidatePartTable).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)CandidatePartsBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)AssociatedPartsTable).BeginInit();
             SuspendLayout();
             // 
@@ -76,6 +82,7 @@
             AddAssociatePartButton.TabIndex = 18;
             AddAssociatePartButton.Text = "Add";
             AddAssociatePartButton.UseVisualStyleBackColor = true;
+            AddAssociatePartButton.Click += AddAssociatePartButton_Click;
             // 
             // SearchCandidatePartButton
             // 
@@ -105,7 +112,6 @@
             AllCandidatePartTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             AllCandidatePartTable.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             AllCandidatePartTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            var CandidatePartsBindingSource = new BindingSource { DataSource = Inventory.AllParts };
             AllCandidatePartTable.DataSource = CandidatePartsBindingSource;
             AllCandidatePartTable.Location = new Point(320, 56);
             AllCandidatePartTable.MultiSelect = false;
@@ -115,7 +121,6 @@
             AllCandidatePartTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             AllCandidatePartTable.Size = new Size(450, 138);
             AllCandidatePartTable.TabIndex = 13;
-            AllCandidatePartTable.CellContentClick += AllCandidatePartTable_CellContentClick;
             // 
             // AddProductMaxInput
             // 
@@ -318,10 +323,12 @@
             Text = "Product";
             Load += AddProductForm_Load;
             ((System.ComponentModel.ISupportInitialize)AllCandidatePartTable).EndInit();
+            ((System.ComponentModel.ISupportInitialize)CandidatePartsBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)AssociatedPartsTable).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
+        
 
         #endregion
 
@@ -348,5 +355,7 @@
         private DataGridView AssociatedPartsTable;
         private Button AddProductCancel;
         private Button AddProductSave;
+        private BindingSource CandidatePartsBindingSource;
+        private BindingList<Part> AssociatedPartsBindingList;
     }
 }
