@@ -30,7 +30,7 @@ namespace C968_Ogden
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            components = new Container();
             AddProdAllPartsLabel = new Label();
             AddAssociatePartButton = new Button();
             SearchCandidatePartButton = new Button();
@@ -56,9 +56,9 @@ namespace C968_Ogden
             AssociatedPartsTable = new DataGridView();
             AddProductCancel = new Button();
             AddProductSave = new Button();
-            ((System.ComponentModel.ISupportInitialize)AllCandidatePartTable).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)CandidatePartsBindingSource).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)AssociatedPartsTable).BeginInit();
+            ((ISupportInitialize)AllCandidatePartTable).BeginInit();
+            ((ISupportInitialize)CandidatePartsBindingSource).BeginInit();
+            ((ISupportInitialize)AssociatedPartsTable).BeginInit();
             SuspendLayout();
             // 
             // AddProdAllPartsLabel
@@ -253,6 +253,7 @@ namespace C968_Ogden
             RemoveAsscPartButton.TabIndex = 46;
             RemoveAsscPartButton.Text = "Remove";
             RemoveAsscPartButton.UseVisualStyleBackColor = true;
+            RemoveAsscPartButton.Click += RemoveAsscPartButton_Click;
             // 
             // AssociatedPartsTable
             // 
@@ -322,13 +323,13 @@ namespace C968_Ogden
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Product";
             Load += AddProductForm_Load;
-            ((System.ComponentModel.ISupportInitialize)AllCandidatePartTable).EndInit();
-            ((System.ComponentModel.ISupportInitialize)CandidatePartsBindingSource).EndInit();
-            ((System.ComponentModel.ISupportInitialize)AssociatedPartsTable).EndInit();
+            ((ISupportInitialize)AllCandidatePartTable).EndInit();
+            ((ISupportInitialize)CandidatePartsBindingSource).EndInit();
+            ((ISupportInitialize)AssociatedPartsTable).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
-        
+
 
         #endregion
 

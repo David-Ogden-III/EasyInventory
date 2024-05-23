@@ -34,8 +34,9 @@ public class Product(string name, decimal price, int inStock, int min, int max, 
     }
 
     //TODO: change parameter to int
-    public bool RemoveAssociatedPart(Part partToRemove)
+    public bool RemoveAssociatedPart(int partIndex)
     {
+        Part partToRemove = AssociatedParts[partIndex];
         bool success = AssociatedParts.Remove(partToRemove);
         return success;
     }

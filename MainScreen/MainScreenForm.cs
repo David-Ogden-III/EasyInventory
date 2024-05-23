@@ -179,8 +179,9 @@ public partial class MainScreen : Form
 
     private void ProductDeleteButton_Click(object sender, EventArgs e)
     {
-        //DeleteDialog dialog = new();
-        //dialog.ShowDialog();
+        int selectedRowIndex = ProductTable.CurrentRow.Index;
+        DeleteDialog dialog = new(prodIndexToDelete: selectedRowIndex);
+        dialog.ShowDialog();
     }
 
 
