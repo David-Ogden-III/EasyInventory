@@ -23,68 +23,58 @@ public partial class MainScreen : Form
     // Part Controls
     private void PartDeleteButton_Click(object sender, EventArgs e)
     {
-        int selectedRowIndex = PartTable.CurrentRow.Index;
-        int partId = Convert.ToInt32(PartTable[0, selectedRowIndex].Value);
-        string? partType = PartTable.CurrentRow.DataBoundItem.ToString();
-        dynamic? partToDelete = null;
-
-        foreach (Part part in Inventory.AllParts)
+        try
         {
-            if (part.PartId == partId)
-            {
-                if (partType == "Outsourced")
-                {
-                    partToDelete = (Outsourced)part;
-                    break;
-                }
-                else
-                {
-                    partToDelete = (InHouse)part;
-                    break;
-                }
-            }
-        }
+            var selectedRow = PartTable.SelectedRows[0];
+            Part partToDelete = (Part)selectedRow.DataBoundItem;
 
-        if (partToDelete != null)
-        {
-            DeleteDialog dialog = new(partToDelete: partToDelete);
+            DeleteDialog dialog = new(partToDelete);
             dialog.ShowDialog();
+
+            PartTable.ClearSelection();
         }
-        PartTable.ClearSelection();
+        catch (ArgumentOutOfRangeException ex)
+        {
+            Debug.WriteLine($"An item must be selected.\n{ex.Message}");
+        }
+        catch (Exception ex)
+        { Debug.WriteLine(ex.Message); }
     }
 
     private void PartModifyButton_Click(object sender, EventArgs e)
     {
-        int selectedRowIndex = PartTable.CurrentRow.Index;
-        int partId = Convert.ToInt32(PartTable[0, selectedRowIndex].Value);
-        string? partType = PartTable.CurrentRow.DataBoundItem.ToString();
-        Part? partToModify = null;
-
-        foreach (Part part in Inventory.AllParts)
+        try
         {
-            if (part.PartId == partId)
+            var selectedRow = PartTable.SelectedRows[0];
+            int selectedRowIndex = selectedRow.Index;
+            Part partToModify = (Part)selectedRow.DataBoundItem;
+            string? partType = PartTable.CurrentRow.DataBoundItem.ToString();
+
+
+            if (partType == "Outsourced")
             {
-                if (partType == "Outsourced")
-                {
-                    partToModify = (Outsourced)part;
-                    break;
-                }
-                else
-                {
-                    partToModify = (InHouse)part;
-                    break;
-                }
+                partToModify = (Outsourced)partToModify;
             }
-        }
+            else
+            {
+                partToModify = (InHouse)partToModify;
+            }
 
-        if (partToModify != null && partType != null)
-        {
-            ModifyPartForm modifyPartForm = new(partToModify, partType, selectedRowIndex)
-            { Tag = this };
-            modifyPartForm.Show(this);
-            Hide();
+            if (partToModify != null && partType != null)
+            {
+                ModifyPartForm modifyPartForm = new(partToModify, partType, selectedRowIndex)
+                { Tag = this };
+                modifyPartForm.Show(this);
+                Hide();
+            }
+            PartTable.ClearSelection();
         }
-        PartTable.ClearSelection();
+        catch (ArgumentOutOfRangeException ex)
+        {
+            Debug.WriteLine($"An item must be selected.\n{ex.Message}");
+        }
+        catch (Exception ex)
+        { Debug.WriteLine(ex.Message); }
     }
 
     private void PartAddButton_Click(object sender, EventArgs e)
@@ -128,8 +118,9 @@ public partial class MainScreen : Form
         {
             for (var i = 0; i < PartTable.Rows.Count; i++)
             {
-                int tempId = Convert.ToInt32(PartTable[0, i].Value);
-                if (tempId != foundPart.PartId)
+                var currentRow = PartTable.Rows[i];
+                Part currentPart = (Part)currentRow.DataBoundItem;
+                if (currentPart != foundPart)
                 {
                     CurrencyManager? currencyManager = (CurrencyManager)BindingContext[PartTable.DataSource];
                     currencyManager.SuspendBinding();
@@ -179,10 +170,79 @@ public partial class MainScreen : Form
 
     private void ProductDeleteButton_Click(object sender, EventArgs e)
     {
-        int selectedRowIndex = ProductTable.CurrentRow.Index;
-        DeleteDialog dialog = new(prodIndexToDelete: selectedRowIndex);
-        dialog.ShowDialog();
+        try
+        {
+            int selectedProdIndex = ProductTable.SelectedRows[0].Index;
+
+            DeleteDialog dialog = new(selectedProdIndex);
+            dialog.ShowDialog();
+
+            ProductTable.ClearSelection();
+        }
+        catch (ArgumentOutOfRangeException ex)
+        {
+            Debug.WriteLine($"An item must be selected.\n{ex.Message}");
+        }
+        catch (Exception ex)
+        { Debug.WriteLine(ex.Message); }
     }
 
+    private void ProductSearchButton_Click(object sender, EventArgs e)
+    {
+        ProductTable.ClearSelection();
+        string rawSearchParams = ProductSearch.Text;
+        string searchParams = rawSearchParams.ToLower().Trim();
 
+
+        for (int i = 0; i < ProductTable.Rows.Count; i++)
+        {
+            ProductTable.Rows[i].Visible = true;
+        }
+
+        if (searchParams == "")
+        {
+            return;
+        }
+
+        Product? foundProduct = null;
+        if (int.TryParse(searchParams, out int id))
+        {
+            foundProduct = Inventory.LookupProduct(id);
+        }
+        else
+        {
+            foundProduct = Inventory.LookupProduct(searchParams);
+        }
+
+        if (foundProduct != null)
+        {
+            for (var i = 0; i < ProductTable.Rows.Count; i++)
+            {
+                var currentRow = ProductTable.Rows[i];
+                Product currentProdcut = (Product)currentRow.DataBoundItem;
+                if (currentProdcut != foundProduct)
+                {
+                    CurrencyManager? currencyManager = (CurrencyManager)BindingContext[ProductTable.DataSource];
+                    currencyManager.SuspendBinding();
+                    ProductTable.Rows[i].Visible = false;
+                    currencyManager.ResumeBinding();
+                }
+            }
+
+        }
+        else
+        {
+            NotFoundDialog dialog = new();
+            dialog.ShowDialog();
+        }
+        ProductSearch.Text = "";
+    }
+    private void ProductSearchEnter(object sender, KeyEventArgs e)
+    {
+        if (e.KeyCode == Keys.Enter)
+        {
+            ProductSearchButton_Click(sender, new EventArgs());
+            e.SuppressKeyPress = true;
+        }
+    }
 }

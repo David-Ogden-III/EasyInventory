@@ -32,7 +32,7 @@ partial class MainScreen
         PartTable = new DataGridView();
         PartBindingSource = new BindingSource { DataSource = Inventory.AllParts};
         ProductTable = new DataGridView();
-        ProductBindingSource = new BindingSource { DataSource = Inventory.Products};
+        ProductBindingSource = new BindingSource { DataSource = Inventory.Products };
         PartSearch = new TextBox();
         ProductSearch = new TextBox();
         PartDeleteButton = new Button();
@@ -103,6 +103,7 @@ partial class MainScreen
         ProductSearch.PlaceholderText = "Search...";
         ProductSearch.Size = new Size(150, 23);
         ProductSearch.TabIndex = 3;
+        ProductSearch.KeyDown += ProductSearchEnter;
         // 
         // PartDeleteButton
         // 
@@ -228,6 +229,7 @@ partial class MainScreen
         ProductSearchButton.TabIndex = 17;
         ProductSearchButton.Text = "Go";
         ProductSearchButton.UseVisualStyleBackColor = true;
+        ProductSearchButton.Click += ProductSearchButton_Click;
         // 
         // MainScreen
         // 

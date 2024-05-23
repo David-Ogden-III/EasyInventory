@@ -35,6 +35,18 @@ public static class Inventory
 
         return null;
     }
+    public static Product? LookupProduct(string partName)
+    {
+        foreach (Product product in Products)
+        {
+            if (product.Name.ToLower() == partName)
+            {
+                return product;
+            }
+        }
+
+        return null;
+    }
 
     public static void UpdateProduct(int placeholder, Product placeholder2)
     {
