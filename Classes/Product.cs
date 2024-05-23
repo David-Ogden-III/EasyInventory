@@ -1,4 +1,5 @@
 using System.ComponentModel;
+using System.Diagnostics;
 public class Product(string name, decimal price, int inStock, int min, int max, int? id = null)
 {
 
@@ -37,7 +38,10 @@ public class Product(string name, decimal price, int inStock, int min, int max, 
     public bool RemoveAssociatedPart(int partIndex)
     {
         Part partToRemove = AssociatedParts[partIndex];
+        string partName = partToRemove.Name;
+
         bool success = AssociatedParts.Remove(partToRemove);
+        Debug.WriteLineIf(success, $"{partName} removed from {Name}'s associated parts list");
         return success;
     }
 

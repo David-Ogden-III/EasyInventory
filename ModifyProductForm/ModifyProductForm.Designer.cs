@@ -1,4 +1,6 @@
-﻿namespace C968_Ogden
+﻿using System.ComponentModel;
+
+namespace C968_Ogden
 {
     partial class ModifyProductForm
     {
@@ -28,6 +30,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             AddProductCancel = new Button();
             AddProductSave = new Button();
             AssociatedPartsLabel = new Label();
@@ -51,8 +54,11 @@
             SearchCandidatePartButton = new Button();
             SearchCandidatePartsInput = new TextBox();
             AllCandidatePartTable = new DataGridView();
+            CandidatePartsBindingSource = new BindingSource { DataSource = Inventory.AllParts};
+            AssociatedPartsBindingList = new BindingList<Part>();
             ((System.ComponentModel.ISupportInitialize)AssociatedPartsTable).BeginInit();
             ((System.ComponentModel.ISupportInitialize)AllCandidatePartTable).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)CandidatePartsBindingSource).BeginInit();
             SuspendLayout();
             // 
             // AddProductCancel
@@ -96,6 +102,7 @@
             RemoveAsscPartButton.TabIndex = 69;
             RemoveAsscPartButton.Text = "Remove";
             RemoveAsscPartButton.UseVisualStyleBackColor = true;
+            RemoveAsscPartButton.Click += RemoveAsscPartButton_Click;
             // 
             // AssociatedPartsTable
             // 
@@ -244,6 +251,7 @@
             AddAssociatePartButton.TabIndex = 53;
             AddAssociatePartButton.Text = "Add";
             AddAssociatePartButton.UseVisualStyleBackColor = true;
+            AddAssociatePartButton.Click += AddAssociatePartButton_Click;
             // 
             // SearchCandidatePartButton
             // 
@@ -257,6 +265,7 @@
             SearchCandidatePartButton.TabIndex = 52;
             SearchCandidatePartButton.Text = "Go";
             SearchCandidatePartButton.UseVisualStyleBackColor = false;
+            SearchCandidatePartButton.Click += SearchCandidatePartButton_Click;
             // 
             // SearchCandidatePartsInput
             // 
@@ -273,7 +282,6 @@
             AllCandidatePartTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             AllCandidatePartTable.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             AllCandidatePartTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            var CandidatePartsBindingSource = new BindingSource { DataSource = Inventory.AllParts };
             AllCandidatePartTable.DataSource = CandidatePartsBindingSource;
             AllCandidatePartTable.Location = new Point(320, 56);
             AllCandidatePartTable.MultiSelect = false;
@@ -318,6 +326,7 @@
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)AssociatedPartsTable).EndInit();
             ((System.ComponentModel.ISupportInitialize)AllCandidatePartTable).EndInit();
+            ((System.ComponentModel.ISupportInitialize)CandidatePartsBindingSource).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -347,5 +356,7 @@
         private Button SearchCandidatePartButton;
         private TextBox SearchCandidatePartsInput;
         private DataGridView AllCandidatePartTable;
+        private BindingSource CandidatePartsBindingSource;
+        private BindingList<Part> AssociatedPartsBindingList;
     }
 }

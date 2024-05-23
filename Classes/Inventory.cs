@@ -48,9 +48,9 @@ public static class Inventory
         return null;
     }
 
-    public static void UpdateProduct(int placeholder, Product placeholder2)
+    public static void UpdateProduct(int indexToReplace, Product newProduct)
     {
-        //Todo: update parameter and function body
+        Products[indexToReplace] = newProduct;
     }
 
     // Part Methods

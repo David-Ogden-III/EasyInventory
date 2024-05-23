@@ -160,12 +160,25 @@ public partial class MainScreen : Form
 
     private void ProductModifyButton_Click(object sender, EventArgs e)
     {
-        ModifyProductForm modifyProductForm = new()
+        try
         {
-            Tag = this
-        };
-        modifyProductForm.Show(this);
-        Hide();
+            var selectedRow = ProductTable.SelectedRows[0];
+            int selectedRowIndex = selectedRow.Index;
+            Product productToModify = (Product)selectedRow.DataBoundItem;
+
+
+            ModifyProductForm modifyProductForm = new(productToModify, selectedRowIndex)
+            { Tag = this };
+            modifyProductForm.Show(this);
+            Hide();
+            ProductTable.ClearSelection();
+        }
+        catch (ArgumentOutOfRangeException ex)
+        {
+            Debug.WriteLine($"An item must be selected.\n{ex.Message}");
+        }
+        catch (Exception ex)
+        { Debug.WriteLine(ex.Message); }
     }
 
     private void ProductDeleteButton_Click(object sender, EventArgs e)
