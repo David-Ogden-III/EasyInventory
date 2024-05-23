@@ -33,8 +33,6 @@ namespace C968_Ogden
                 ModifyPartInHouseRadio.Checked = false;
                 ModifyPartOutsourcedRadio.Checked = true;
             }
-            Debug.WriteLine(Inventory.AllParts.Contains(PartToModify));
-
         }
 
         private void ModifyPartSave_Click(object sender, EventArgs e)
