@@ -32,7 +32,7 @@
                 int machineId = Convert.ToInt32(AddPartManufactureInput.Text);
                 newPart = new InHouse(partName, price, inventory, min, max, machineId);
             }
-            Inventory.AllParts.Add(newPart);
+            Inventory.AddPart(newPart);
 
             var MainScreen = Tag as MainScreen;
             MainScreen?.Show();
