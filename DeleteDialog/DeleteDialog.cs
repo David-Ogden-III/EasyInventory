@@ -30,32 +30,17 @@ namespace C968_Ogden
 
         private void DeleteDialog_Load(object sender, EventArgs e)
         {
-            if (PartToDelete != null && ProdIndexToDelete == null && ListDeleteFrom == null)
-            {
-                DeleteDialogLabel.Location = new Point(102, 9);
-                PartDeleteExtraLabel.Visible = true;
-            }
+            
         }
 
         private void DialogDelete_Click(object sender, EventArgs e)
         {
-            int count = 0;
-
             if (PartToDelete != null && ProdIndexToDelete == null && ListDeleteFrom == null)
             {
-                foreach (Product prod in Inventory.Products)
-                {
-                    if (prod.AssociatedParts.Contains(PartToDelete))
-                    {
-                        prod.AssociatedParts.Remove(PartToDelete);
-                        count++;
-                    }
-                }
-
                 string partName = PartToDelete.Name;
                 bool success = Inventory.DeletePart(PartToDelete);
 
-                Debug.WriteLineIf(success, $"{partName} has been successfully deleted and disassociated from {count} Products.");
+                Debug.WriteLineIf(success, $"{partName} has been successfully deleted");
             }
             else if (PartToDelete == null && ProdIndexToDelete != null && ListDeleteFrom == null)
             {

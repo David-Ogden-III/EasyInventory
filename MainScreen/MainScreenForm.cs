@@ -24,11 +24,30 @@ public partial class MainScreen : Form
     {
         try
         {
+            bool associatedToProd = false;
             var selectedRow = PartTable.SelectedRows[0];
             Part partToDelete = (Part)selectedRow.DataBoundItem;
 
-            DeleteDialog dialog = new(partToDelete);
-            dialog.ShowDialog();
+            foreach (Product prod in Inventory.Products)
+            {
+                if (prod.AssociatedParts.Contains(partToDelete))
+                {
+                    associatedToProd = true;
+                    break;
+                }
+            }
+
+            if (associatedToProd)
+            {
+                NotifyDialog dialog = new("NotifyPart");
+                dialog.ShowDialog();
+            }
+            else
+            {
+                DeleteDialog dialog = new(partToDelete);
+                dialog.ShowDialog();
+            }
+            
 
             PartTable.ClearSelection();
         }
@@ -190,7 +209,7 @@ public partial class MainScreen : Form
 
             if (asscPartsLength > 0)
             {
-                NotifyDialog dialog = new("Prod Has Parts");
+                NotifyDialog dialog = new("NotifyProduct");
                 dialog.ShowDialog();
             }
             else

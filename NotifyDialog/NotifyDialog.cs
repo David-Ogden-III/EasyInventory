@@ -7,22 +7,27 @@
             InitializeComponent();
         }
 
-        public NotifyDialog(string mainScreen)
+        public NotifyDialog(string notifyType)
         {
             InitializeComponent();
-            MainScreen = mainScreen;
+            NotifyType = notifyType;
         }
 
         public void NotifyDialog_Load(object sender, EventArgs e)
         {
-            if (MainScreen != null)
+            if (NotifyType == "NotifyProduct")
             {
                 NotFoundLabel.Visible = false;
                 ProdHasParts.Visible = true;
             }
+            else if (NotifyType == "NotifyPart")
+            {
+                NotFoundLabel.Visible = false;
+                PartStillAssociated.Visible = true;
+            }
         }
 
-        private string? MainScreen { get; set; }
+        private string? NotifyType { get; set; }
 
         private void NotFoundOk_Click(object sender, EventArgs e)
         {

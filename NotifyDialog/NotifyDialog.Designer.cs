@@ -31,6 +31,7 @@
             NotFoundLabel = new Label();
             NotFoundOk = new Button();
             ProdHasParts = new Label();
+            PartStillAssociated = new Label();
             SuspendLayout();
             // 
             // NotFoundLabel
@@ -66,6 +67,18 @@
             ProdHasParts.TextAlign = ContentAlignment.MiddleCenter;
             ProdHasParts.Visible = false;
             // 
+            // PartStillAssociated
+            // 
+            PartStillAssociated.AutoSize = true;
+            PartStillAssociated.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            PartStillAssociated.Location = new Point(36, 11);
+            PartStillAssociated.Name = "PartStillAssociated";
+            PartStillAssociated.Size = new Size(180, 30);
+            PartStillAssociated.TabIndex = 4;
+            PartStillAssociated.Text = "Disassociate from ALL products\nbefore deleting";
+            PartStillAssociated.TextAlign = ContentAlignment.MiddleCenter;
+            PartStillAssociated.Visible = false;
+            // 
             // NotifyDialog
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -73,6 +86,7 @@
             BackColor = SystemColors.ScrollBar;
             ClientSize = new Size(252, 101);
             ControlBox = false;
+            Controls.Add(PartStillAssociated);
             Controls.Add(NotFoundOk);
             Controls.Add(NotFoundLabel);
             Controls.Add(ProdHasParts);
@@ -90,5 +104,6 @@
         private Label NotFoundLabel;
         private Button NotFoundOk;
         private Label ProdHasParts;
+        private Label PartStillAssociated;
     }
 }
