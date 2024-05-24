@@ -11,8 +11,7 @@ public partial class MainScreen : Form
 
     private void Form1_Load(object sender, EventArgs e)
     {
-        PartTable.ClearSelection();
-        ProductTable.ClearSelection();
+        ClearSelection();
     }
 
     private void MainExitButton_Click(object sender, EventArgs e)
@@ -67,7 +66,7 @@ public partial class MainScreen : Form
                 modifyPartForm.Show(this);
                 Hide();
             }
-            PartTable.ClearSelection();
+            ClearSelection();
         }
         catch (ArgumentOutOfRangeException ex)
         {
@@ -85,11 +84,11 @@ public partial class MainScreen : Form
         };
         addPartForm.Show(this);
         Hide();
-        PartTable.ClearSelection();
+        ClearSelection();
     }
     private void PartSearchButton_Click(object sender, EventArgs e)
     {
-        PartTable.ClearSelection();
+        ClearSelection();
         string rawSearchParams = PartSearch.Text;
         string searchParams = rawSearchParams.ToLower().Trim();
 
@@ -132,7 +131,7 @@ public partial class MainScreen : Form
         }
         else
         {
-            NotFoundDialog dialog = new();
+            NotifyDialog dialog = new();
             dialog.ShowDialog();
         }
         PartSearch.Text = "";
@@ -156,6 +155,7 @@ public partial class MainScreen : Form
         };
         addProductForm.Show(this);
         Hide();
+        ClearSelection();
     }
 
     private void ProductModifyButton_Click(object sender, EventArgs e)
@@ -171,7 +171,7 @@ public partial class MainScreen : Form
             { Tag = this };
             modifyProductForm.Show(this);
             Hide();
-            ProductTable.ClearSelection();
+            ClearSelection();
         }
         catch (ArgumentOutOfRangeException ex)
         {
@@ -186,11 +186,20 @@ public partial class MainScreen : Form
         try
         {
             int selectedProdIndex = ProductTable.SelectedRows[0].Index;
+            int asscPartsLength = Inventory.Products[selectedProdIndex].AssociatedParts.Count;
 
-            DeleteDialog dialog = new(selectedProdIndex);
-            dialog.ShowDialog();
+            if (asscPartsLength > 0)
+            {
+                NotifyDialog dialog = new("Prod Has Parts");
+                dialog.ShowDialog();
+            }
+            else
+            {
+                DeleteDialog dialog = new(selectedProdIndex);
+                dialog.ShowDialog();
+            }
 
-            ProductTable.ClearSelection();
+            ClearSelection();
         }
         catch (ArgumentOutOfRangeException ex)
         {
@@ -202,7 +211,7 @@ public partial class MainScreen : Form
 
     private void ProductSearchButton_Click(object sender, EventArgs e)
     {
-        ProductTable.ClearSelection();
+        ClearSelection();
         string rawSearchParams = ProductSearch.Text;
         string searchParams = rawSearchParams.ToLower().Trim();
 
@@ -245,7 +254,7 @@ public partial class MainScreen : Form
         }
         else
         {
-            NotFoundDialog dialog = new();
+            NotifyDialog dialog = new();
             dialog.ShowDialog();
         }
         ProductSearch.Text = "";
@@ -257,5 +266,16 @@ public partial class MainScreen : Form
             ProductSearchButton_Click(sender, new EventArgs());
             e.SuppressKeyPress = true;
         }
+    }
+
+    // Helper Methods
+    private void ClearSelection()
+    {
+        PartTable.ClearSelection();
+        ProductTable.ClearSelection();
+    }
+    public void ClearTableSelections()
+    {
+        ClearSelection();
     }
 }
