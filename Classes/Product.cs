@@ -34,7 +34,6 @@ public class Product(string name, decimal price, int inStock, int min, int max, 
         AssociatedParts.Add(partToAdd);
     }
 
-    //TODO: change parameter to int
     public bool RemoveAssociatedPart(int partIndex)
     {
         Part partToRemove = AssociatedParts[partIndex];
@@ -45,10 +44,8 @@ public class Product(string name, decimal price, int inStock, int min, int max, 
         return success;
     }
 
-    //TODO: change parameter to int
-    public Part LookupAssociatedPart(Part partToFind)
+    public Part LookupAssociatedPart(int partIndex)
     {
-        int partIndex = AssociatedParts.IndexOf(partToFind);
         return AssociatedParts[partIndex];
     }
 
