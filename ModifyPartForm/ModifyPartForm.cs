@@ -61,6 +61,7 @@ namespace C968_Ogden
             var MainScreen = Tag as MainScreen;
             MainScreen?.Show();
             Close();
+            MainScreen.ClearTableSelections();
         }
 
         private void ModifyPartCancel_Click(object sender, EventArgs e)
