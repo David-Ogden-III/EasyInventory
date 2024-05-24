@@ -1,6 +1,6 @@
 ﻿namespace C968_Ogden
 {
-    partial class NotFoundDialog
+    partial class NotifyDialog
     {
         /// <summary>
         /// Required designer variable.
@@ -30,6 +30,7 @@
         {
             NotFoundLabel = new Label();
             NotFoundOk = new Button();
+            ProdHasParts = new Label();
             SuspendLayout();
             // 
             // NotFoundLabel
@@ -41,6 +42,7 @@
             NotFoundLabel.Size = new Size(91, 15);
             NotFoundLabel.TabIndex = 1;
             NotFoundLabel.Text = "Part Not Found";
+            NotFoundLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // NotFoundOk
             // 
@@ -52,7 +54,19 @@
             NotFoundOk.UseVisualStyleBackColor = true;
             NotFoundOk.Click += NotFoundOk_Click;
             // 
-            // NotFoundDialog
+            // ProdHasParts
+            // 
+            ProdHasParts.AutoSize = true;
+            ProdHasParts.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            ProdHasParts.Location = new Point(62, 11);
+            ProdHasParts.Name = "ProdHasParts";
+            ProdHasParts.Size = new Size(128, 30);
+            ProdHasParts.TabIndex = 3;
+            ProdHasParts.Text = "Disassociate ALL parts\nbefore deleting";
+            ProdHasParts.TextAlign = ContentAlignment.MiddleCenter;
+            ProdHasParts.Visible = false;
+            // 
+            // NotifyDialog
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -61,10 +75,12 @@
             ControlBox = false;
             Controls.Add(NotFoundOk);
             Controls.Add(NotFoundLabel);
+            Controls.Add(ProdHasParts);
             FormBorderStyle = FormBorderStyle.FixedDialog;
-            Name = "NotFoundDialog";
+            Name = "NotifyDialog";
             ShowInTaskbar = false;
             StartPosition = FormStartPosition.CenterParent;
+            Load += NotifyDialog_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -73,5 +89,6 @@
 
         private Label NotFoundLabel;
         private Button NotFoundOk;
+        private Label ProdHasParts;
     }
 }
