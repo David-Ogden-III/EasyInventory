@@ -81,8 +81,7 @@ namespace C968_Ogden
             var selectedRow = AssociatedPartsTable.SelectedRows[0];
             Part tempPart = (Part)selectedRow.DataBoundItem;
 
-            DeleteDialog dialog = new(tempPart, AssociatedPartsBindingList);
-            dialog.ShowDialog();
+            AssociatedPartsBindingList.Remove(tempPart);
 
             AssociatedPartsTable.ClearSelection();
         }
