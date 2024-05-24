@@ -69,8 +69,11 @@ namespace C968_Ogden
             var selectedRow = AllCandidatePartTable.SelectedRows[0];
             Part tempPart = (Part)selectedRow.DataBoundItem;
 
-            AssociatedPartsBindingList.Add(tempPart);
-            AssociatedPartsTable.ClearSelection();
+            if (!AssociatedPartsBindingList.Contains(tempPart))
+            {
+                AssociatedPartsBindingList.Add(tempPart);
+                AssociatedPartsTable.ClearSelection();
+            }
         }
 
         private void RemoveAsscPartButton_Click(object sender, EventArgs e)
@@ -78,8 +81,70 @@ namespace C968_Ogden
             var selectedRow = AssociatedPartsTable.SelectedRows[0];
             Part tempPart = (Part)selectedRow.DataBoundItem;
 
-            AssociatedPartsBindingList.Remove(tempPart);
+            DeleteDialog dialog = new(tempPart, AssociatedPartsBindingList);
+            dialog.ShowDialog();
+
             AssociatedPartsTable.ClearSelection();
+        }
+
+        private void SearchCandidatePartButton_Click(object sender, EventArgs e)
+        {
+            AllCandidatePartTable.ClearSelection();
+            string rawSearchParams = SearchCandidatePartsInput.Text;
+            string searchParams = rawSearchParams.ToLower().Trim();
+
+
+            for (int i = 0; i < AllCandidatePartTable.Rows.Count; i++)
+            {
+                AllCandidatePartTable.Rows[i].Visible = true;
+            }
+
+            if (searchParams == "")
+            {
+                return;
+            }
+
+            Part? foundPart = null;
+            if (int.TryParse(searchParams, out int id))
+            {
+                foundPart = Inventory.LookupPart(id);
+            }
+            else
+            {
+                foundPart = Inventory.LookupPart(searchParams);
+            }
+
+            if (foundPart != null)
+            {
+                for (var i = 0; i < AllCandidatePartTable.Rows.Count; i++)
+                {
+                    var currentRow = AllCandidatePartTable.Rows[i];
+                    Part currentPart = (Part)currentRow.DataBoundItem;
+                    if (currentPart != foundPart)
+                    {
+                        CurrencyManager? currencyManager = (CurrencyManager)BindingContext[AllCandidatePartTable.DataSource];
+                        currencyManager.SuspendBinding();
+                        AllCandidatePartTable.Rows[i].Visible = false;
+                        currencyManager.ResumeBinding();
+                    }
+                }
+
+            }
+            else
+            {
+                NotifyDialog dialog = new();
+                dialog.ShowDialog();
+            }
+            SearchCandidatePartsInput.Text = "";
+        }
+
+        private void PartSearchEnter(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SearchCandidatePartButton_Click(sender, new EventArgs());
+                e.SuppressKeyPress = true;
+            }
         }
     }
 }
