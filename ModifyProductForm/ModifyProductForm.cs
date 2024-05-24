@@ -42,6 +42,7 @@ namespace C968_Ogden
 
         private void AddProductSave_Click(object sender, EventArgs e)
         {
+            // Create new Product from input fields
             int id = Convert.ToInt32(AddProductIdInput.Text);
             string partName = AddProductNameInput.Text;
             int inventory = Convert.ToInt32(AddProductInventoryInput.Text);
@@ -50,20 +51,16 @@ namespace C968_Ogden
             int max = Convert.ToInt32(AddProductMaxInput.Text);
             Product newProduct = new(partName, price, inventory, min, max, id);
 
-            //for (var i = 0; i < ProductToModify.AssociatedParts.Count; i++)
-            //{
-            //    if (!AssociatedPartsBindingList.Contains(ProductToModify.AssociatedParts[i]))
-            //    {
-            //        Debug.WriteLine("HElp");
-            //        ProductToModify.RemoveAssociatedPart(i);
-            //    }
-            //}
+
+            // Create new array with parts from ProductToModify.AssociatedParts
             Part[] array = new Part[ProductToModify.AssociatedParts.Count];
             for (var i = 0; i < ProductToModify.AssociatedParts.Count; i++)
             {
                 array[i] = ProductToModify.AssociatedParts[i];
             }
 
+
+            // Remove Part from ProductToModify.AssociatedParts if they were not in the associated parts table
             foreach (var part in array)
             {
                 if (!AssociatedPartsBindingList.Contains(part))
@@ -75,6 +72,7 @@ namespace C968_Ogden
 
             newProduct.AssociatedParts = ProductToModify.AssociatedParts;
 
+            // Add Part to newProduct.AssociatedParts if it is not already present
             for (var i = 0; i < AssociatedPartsTable.Rows.Count; i++)
             {
                 var partRow = AssociatedPartsTable.Rows[i];
@@ -92,10 +90,10 @@ namespace C968_Ogden
             }
 
 
-
-
+            // Overwrites product with new product
             Inventory.UpdateProduct(SelectedRowIndex, newProduct);
 
+            //Closes Form
             var MainScreen = Tag as MainScreen;
             MainScreen?.Show();
             Close();
@@ -106,7 +104,9 @@ namespace C968_Ogden
             var selectedRow = AssociatedPartsTable.SelectedRows[0];
             Part tempPart = (Part)selectedRow.DataBoundItem;
 
-            AssociatedPartsBindingList.Remove(tempPart);
+            DeleteDialog dialog = new(tempPart, AssociatedPartsBindingList);
+            dialog.ShowDialog();
+
             AssociatedPartsTable.ClearSelection();
         }
 
@@ -124,7 +124,62 @@ namespace C968_Ogden
 
         private void SearchCandidatePartButton_Click(object sender, EventArgs e)
         {
+            AllCandidatePartTable.ClearSelection();
+            string rawSearchParams = SearchCandidatePartsInput.Text;
+            string searchParams = rawSearchParams.ToLower().Trim();
 
+
+            for (int i = 0; i < AllCandidatePartTable.Rows.Count; i++)
+            {
+                AllCandidatePartTable.Rows[i].Visible = true;
+            }
+
+            if (searchParams == "")
+            {
+                return;
+            }
+
+            Part? foundPart = null;
+            if (int.TryParse(searchParams, out int id))
+            {
+                foundPart = Inventory.LookupPart(id);
+            }
+            else
+            {
+                foundPart = Inventory.LookupPart(searchParams);
+            }
+
+            if (foundPart != null)
+            {
+                for (var i = 0; i < AllCandidatePartTable.Rows.Count; i++)
+                {
+                    var currentRow = AllCandidatePartTable.Rows[i];
+                    Part currentPart = (Part)currentRow.DataBoundItem;
+                    if (currentPart != foundPart)
+                    {
+                        CurrencyManager? currencyManager = (CurrencyManager)BindingContext[AllCandidatePartTable.DataSource];
+                        currencyManager.SuspendBinding();
+                        AllCandidatePartTable.Rows[i].Visible = false;
+                        currencyManager.ResumeBinding();
+                    }
+                }
+
+            }
+            else
+            {
+                NotifyDialog dialog = new();
+                dialog.ShowDialog();
+            }
+            SearchCandidatePartsInput.Text = "";
+        }
+
+        private void PartSearchEnter(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SearchCandidatePartButton_Click(sender, new EventArgs());
+                e.SuppressKeyPress = true;
+            }
         }
     }
 }

@@ -30,7 +30,7 @@ namespace C968_Ogden
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            components = new Container();
             AddProductCancel = new Button();
             AddProductSave = new Button();
             AssociatedPartsLabel = new Label();
@@ -54,11 +54,11 @@ namespace C968_Ogden
             SearchCandidatePartButton = new Button();
             SearchCandidatePartsInput = new TextBox();
             AllCandidatePartTable = new DataGridView();
-            CandidatePartsBindingSource = new BindingSource { DataSource = Inventory.AllParts};
+            CandidatePartsBindingSource = new BindingSource{DataSource = Inventory.AllParts};
             AssociatedPartsBindingList = new BindingList<Part>();
-            ((System.ComponentModel.ISupportInitialize)AssociatedPartsTable).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)AllCandidatePartTable).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)CandidatePartsBindingSource).BeginInit();
+            ((ISupportInitialize)AssociatedPartsTable).BeginInit();
+            ((ISupportInitialize)AllCandidatePartTable).BeginInit();
+            ((ISupportInitialize)CandidatePartsBindingSource).BeginInit();
             SuspendLayout();
             // 
             // AddProductCancel
@@ -66,7 +66,7 @@ namespace C968_Ogden
             AddProductCancel.Location = new Point(168, 343);
             AddProductCancel.Name = "AddProductCancel";
             AddProductCancel.Size = new Size(51, 23);
-            AddProductCancel.TabIndex = 72;
+            AddProductCancel.TabIndex = 7;
             AddProductCancel.Text = "Cancel";
             AddProductCancel.UseVisualStyleBackColor = true;
             AddProductCancel.Click += AddProductCancel_Click;
@@ -76,7 +76,7 @@ namespace C968_Ogden
             AddProductSave.Location = new Point(75, 343);
             AddProductSave.Name = "AddProductSave";
             AddProductSave.Size = new Size(51, 23);
-            AddProductSave.TabIndex = 71;
+            AddProductSave.TabIndex = 6;
             AddProductSave.Text = "Save";
             AddProductSave.UseVisualStyleBackColor = true;
             AddProductSave.Click += AddProductSave_Click;
@@ -90,7 +90,6 @@ namespace C968_Ogden
             AssociatedPartsLabel.Location = new Point(320, 228);
             AssociatedPartsLabel.Name = "AssociatedPartsLabel";
             AssociatedPartsLabel.Size = new Size(153, 28);
-            AssociatedPartsLabel.TabIndex = 70;
             AssociatedPartsLabel.Text = "Associated Parts";
             AssociatedPartsLabel.TextAlign = ContentAlignment.BottomLeft;
             // 
@@ -99,7 +98,6 @@ namespace C968_Ogden
             RemoveAsscPartButton.Location = new Point(695, 401);
             RemoveAsscPartButton.Name = "RemoveAsscPartButton";
             RemoveAsscPartButton.Size = new Size(75, 23);
-            RemoveAsscPartButton.TabIndex = 69;
             RemoveAsscPartButton.Text = "Remove";
             RemoveAsscPartButton.UseVisualStyleBackColor = true;
             RemoveAsscPartButton.Click += RemoveAsscPartButton_Click;
@@ -118,42 +116,41 @@ namespace C968_Ogden
             AssociatedPartsTable.RowHeadersVisible = false;
             AssociatedPartsTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             AssociatedPartsTable.Size = new Size(450, 138);
-            AssociatedPartsTable.TabIndex = 68;
             // 
             // AddProductMaxInput
             // 
             AddProductMaxInput.Location = new Point(122, 290);
             AddProductMaxInput.Name = "AddProductMaxInput";
             AddProductMaxInput.Size = new Size(140, 23);
-            AddProductMaxInput.TabIndex = 67;
+            AddProductMaxInput.TabIndex = 5;
             // 
             // AddProductMinInput
             // 
             AddProductMinInput.Location = new Point(122, 249);
             AddProductMinInput.Name = "AddProductMinInput";
             AddProductMinInput.Size = new Size(140, 23);
-            AddProductMinInput.TabIndex = 66;
+            AddProductMinInput.TabIndex = 4;
             // 
             // AddProductNameInput
             // 
             AddProductNameInput.Location = new Point(122, 126);
             AddProductNameInput.Name = "AddProductNameInput";
             AddProductNameInput.Size = new Size(140, 23);
-            AddProductNameInput.TabIndex = 65;
+            AddProductNameInput.TabIndex = 1;
             // 
             // AddProductInventoryInput
             // 
             AddProductInventoryInput.Location = new Point(122, 167);
             AddProductInventoryInput.Name = "AddProductInventoryInput";
             AddProductInventoryInput.Size = new Size(140, 23);
-            AddProductInventoryInput.TabIndex = 64;
+            AddProductInventoryInput.TabIndex = 2;
             // 
             // AddProductPriceInput
             // 
             AddProductPriceInput.Location = new Point(122, 208);
             AddProductPriceInput.Name = "AddProductPriceInput";
             AddProductPriceInput.Size = new Size(140, 23);
-            AddProductPriceInput.TabIndex = 63;
+            AddProductPriceInput.TabIndex = 3;
             // 
             // AddProductInventoryLabel
             // 
@@ -161,7 +158,6 @@ namespace C968_Ogden
             AddProductInventoryLabel.Location = new Point(32, 171);
             AddProductInventoryLabel.Name = "AddProductInventoryLabel";
             AddProductInventoryLabel.Size = new Size(57, 15);
-            AddProductInventoryLabel.TabIndex = 62;
             AddProductInventoryLabel.Text = "Inventory";
             // 
             // AddProductPriceLabel
@@ -170,7 +166,6 @@ namespace C968_Ogden
             AddProductPriceLabel.Location = new Point(24, 212);
             AddProductPriceLabel.Name = "AddProductPriceLabel";
             AddProductPriceLabel.Size = new Size(68, 15);
-            AddProductPriceLabel.TabIndex = 61;
             AddProductPriceLabel.Text = "Price / Cost";
             // 
             // AddProductMinLabel
@@ -179,7 +174,6 @@ namespace C968_Ogden
             AddProductMinLabel.Location = new Point(66, 253);
             AddProductMinLabel.Name = "AddProductMinLabel";
             AddProductMinLabel.Size = new Size(28, 15);
-            AddProductMinLabel.TabIndex = 60;
             AddProductMinLabel.Text = "Min";
             // 
             // AddProductMaxLabel
@@ -188,7 +182,6 @@ namespace C968_Ogden
             AddProductMaxLabel.Location = new Point(63, 294);
             AddProductMaxLabel.Name = "AddProductMaxLabel";
             AddProductMaxLabel.Size = new Size(30, 15);
-            AddProductMaxLabel.TabIndex = 59;
             AddProductMaxLabel.Text = "Max";
             // 
             // AddProductNameLabel
@@ -197,7 +190,6 @@ namespace C968_Ogden
             AddProductNameLabel.Location = new Point(54, 130);
             AddProductNameLabel.Name = "AddProductNameLabel";
             AddProductNameLabel.Size = new Size(39, 15);
-            AddProductNameLabel.TabIndex = 58;
             AddProductNameLabel.Text = "Name";
             // 
             // AddProductIdInput
@@ -206,7 +198,6 @@ namespace C968_Ogden
             AddProductIdInput.Location = new Point(122, 85);
             AddProductIdInput.Name = "AddProductIdInput";
             AddProductIdInput.Size = new Size(140, 23);
-            AddProductIdInput.TabIndex = 57;
             // 
             // AddProductIdLabel
             // 
@@ -214,7 +205,6 @@ namespace C968_Ogden
             AddProductIdLabel.Location = new Point(74, 89);
             AddProductIdLabel.Name = "AddProductIdLabel";
             AddProductIdLabel.Size = new Size(18, 15);
-            AddProductIdLabel.TabIndex = 56;
             AddProductIdLabel.Text = "ID";
             // 
             // AddProductLabel
@@ -226,7 +216,6 @@ namespace C968_Ogden
             AddProductLabel.Location = new Point(12, 9);
             AddProductLabel.Name = "AddProductLabel";
             AddProductLabel.Size = new Size(149, 28);
-            AddProductLabel.TabIndex = 55;
             AddProductLabel.Text = "Modify Product";
             AddProductLabel.TextAlign = ContentAlignment.BottomLeft;
             // 
@@ -239,7 +228,6 @@ namespace C968_Ogden
             AddProdAllPartsLabel.Location = new Point(320, 27);
             AddProdAllPartsLabel.Name = "AddProdAllPartsLabel";
             AddProdAllPartsLabel.Size = new Size(176, 28);
-            AddProdAllPartsLabel.TabIndex = 54;
             AddProdAllPartsLabel.Text = "All Candidate Parts";
             AddProdAllPartsLabel.TextAlign = ContentAlignment.BottomLeft;
             // 
@@ -248,7 +236,6 @@ namespace C968_Ogden
             AddAssociatePartButton.Location = new Point(695, 200);
             AddAssociatePartButton.Name = "AddAssociatePartButton";
             AddAssociatePartButton.Size = new Size(75, 23);
-            AddAssociatePartButton.TabIndex = 53;
             AddAssociatePartButton.Text = "Add";
             AddAssociatePartButton.UseVisualStyleBackColor = true;
             AddAssociatePartButton.Click += AddAssociatePartButton_Click;
@@ -262,7 +249,6 @@ namespace C968_Ogden
             SearchCandidatePartButton.Location = new Point(584, 27);
             SearchCandidatePartButton.Name = "SearchCandidatePartButton";
             SearchCandidatePartButton.Size = new Size(30, 23);
-            SearchCandidatePartButton.TabIndex = 52;
             SearchCandidatePartButton.Text = "Go";
             SearchCandidatePartButton.UseVisualStyleBackColor = false;
             SearchCandidatePartButton.Click += SearchCandidatePartButton_Click;
@@ -273,7 +259,7 @@ namespace C968_Ogden
             SearchCandidatePartsInput.Name = "SearchCandidatePartsInput";
             SearchCandidatePartsInput.PlaceholderText = "Search...";
             SearchCandidatePartsInput.Size = new Size(150, 23);
-            SearchCandidatePartsInput.TabIndex = 51;
+            SearchCandidatePartsInput.KeyDown += PartSearchEnter;
             // 
             // AllCandidatePartTable
             // 
@@ -290,7 +276,6 @@ namespace C968_Ogden
             AllCandidatePartTable.RowHeadersVisible = false;
             AllCandidatePartTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             AllCandidatePartTable.Size = new Size(450, 138);
-            AllCandidatePartTable.TabIndex = 50;
             // 
             // ModifyProductForm
             // 
@@ -322,11 +307,11 @@ namespace C968_Ogden
             Controls.Add(AllCandidatePartTable);
             Name = "ModifyProductForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form1";
+            Text = "Product";
             Load += Form1_Load;
-            ((System.ComponentModel.ISupportInitialize)AssociatedPartsTable).EndInit();
-            ((System.ComponentModel.ISupportInitialize)AllCandidatePartTable).EndInit();
-            ((System.ComponentModel.ISupportInitialize)CandidatePartsBindingSource).EndInit();
+            ((ISupportInitialize)AssociatedPartsTable).EndInit();
+            ((ISupportInitialize)AllCandidatePartTable).EndInit();
+            ((ISupportInitialize)CandidatePartsBindingSource).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
