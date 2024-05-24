@@ -31,7 +31,6 @@
             DeleteDialogLabel = new Label();
             DialogCancel = new Button();
             DialogDelete = new Button();
-            PartDeleteExtraLabel = new Label();
             SuspendLayout();
             // 
             // DeleteDialogLabel
@@ -63,18 +62,7 @@
             DialogDelete.Text = "Delete";
             DialogDelete.UseVisualStyleBackColor = true;
             DialogDelete.Click += DialogDelete_Click;
-            // 
-            // PartDeleteExtraLabel
-            // 
-            PartDeleteExtraLabel.AutoSize = true;
-            PartDeleteExtraLabel.Font = new Font("Segoe UI", 8F);
-            PartDeleteExtraLabel.Location = new Point(59, 26);
-            PartDeleteExtraLabel.Name = "PartDeleteExtraLabel";
-            PartDeleteExtraLabel.Size = new Size(136, 26);
-            PartDeleteExtraLabel.TabIndex = 3;
-            PartDeleteExtraLabel.Text = "Part will be disassociated\nfrom all products";
-            PartDeleteExtraLabel.TextAlign = ContentAlignment.MiddleCenter;
-            PartDeleteExtraLabel.Visible = false;
+            
             // 
             // DeleteDialog
             // 
@@ -84,7 +72,6 @@
             ClientSize = new Size(252, 101);
             ControlBox = false;
             Controls.Add(DeleteDialogLabel);
-            Controls.Add(PartDeleteExtraLabel);
             Controls.Add(DialogDelete);
             Controls.Add(DialogCancel);
             FormBorderStyle = FormBorderStyle.FixedDialog;
@@ -101,6 +88,5 @@
         private Label DeleteDialogLabel;
         private Button DialogCancel;
         private Button DialogDelete;
-        private Label PartDeleteExtraLabel;
     }
 }
