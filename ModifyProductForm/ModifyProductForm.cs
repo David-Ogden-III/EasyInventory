@@ -10,8 +10,10 @@ namespace C968_Ogden
             InitializeComponent();
             ProductToModify = productToModify;
             SelectedRowIndex = selectedRowIndex;
+            errorProvider.BlinkRate = 0;
         }
 
+        private ErrorProvider errorProvider = new();
         private Product ProductToModify { get; set; }
         private int SelectedRowIndex { get; set; }
 
@@ -42,6 +44,9 @@ namespace C968_Ogden
 
         private void AddProductSave_Click(object sender, EventArgs e)
         {
+            bool hasExceptions = ValidateInput();
+            if (hasExceptions) return;
+
             // Create new Product from input fields
             int id = Convert.ToInt32(AddProductIdInput.Text);
             string partName = AddProductNameInput.Text;
@@ -180,6 +185,144 @@ namespace C968_Ogden
                 SearchCandidatePartButton_Click(sender, new EventArgs());
                 e.SuppressKeyPress = true;
             }
+        }
+
+
+
+
+        // Helper Methods - Form Validation
+        private bool ValidateInput()
+        {
+            HideInputErrors();
+
+            bool hasExceptions = false;
+
+
+            bool inventorySuccess = int.TryParse(AddProductInventoryInput.Text, out int inventory);
+            if (AddProductInventoryInput.Text.Length <= 0)
+            {
+                InputLengthError(AddProductInventoryInput);
+                hasExceptions = true;
+            }
+            else if (!inventorySuccess)
+            {
+                IntParseError(AddProductInventoryInput);
+                hasExceptions = true;
+            }
+
+            bool priceSuccess = decimal.TryParse(AddProductPriceInput.Text, out decimal price);
+            if (AddProductPriceInput.Text.Length <= 0)
+            {
+                InputLengthError(AddProductPriceInput);
+                hasExceptions = true;
+            }
+            else if (!priceSuccess)
+            {
+                DecimalParseError(AddProductPriceInput);
+                hasExceptions = true;
+            }
+
+            bool minSuccess = int.TryParse(AddProductMinInput.Text, out int min);
+            if (AddProductMinInput.Text.Length <= 0)
+            {
+                InputLengthError(AddProductMinInput);
+                hasExceptions = true;
+            }
+            else if (!minSuccess)
+            {
+                IntParseError(AddProductMinInput);
+                hasExceptions = true;
+            }
+
+            bool maxSuccess = int.TryParse(AddProductMaxInput.Text, out int max);
+            if (AddProductMaxInput.Text.Length <= 0)
+            {
+                InputLengthError(AddProductMaxInput);
+                hasExceptions = true;
+            }
+            else if (!maxSuccess)
+            {
+                IntParseError(AddProductMaxInput);
+                hasExceptions = true;
+            }
+
+            if (AddProductNameInput.Text.Length <= 0)
+            {
+                InputLengthError(AddProductNameInput);
+                hasExceptions = true;
+            }
+
+
+            if (minSuccess && maxSuccess)
+            {
+                if (min > max)
+                {
+                    MinMaxBoundsError(AddProductMinInput, AddProductMaxInput);
+                    hasExceptions = true;
+                }
+                else if (inventorySuccess && (min > inventory || inventory > max))
+                {
+                    AddProductInventoryInput.BackColor = Color.LightCoral;
+                    errorProvider.SetError(AddProductInventoryInput, "Inventory must be <= min and >= max");
+                    hasExceptions = true;
+                }
+            }
+
+            return hasExceptions;
+        }
+
+        private void HideInputErrors()
+        {
+            Color backColor = SystemColors.Window;
+
+            AddProductInventoryInput.BackColor = backColor;
+            AddProductPriceInput.BackColor = backColor;
+            AddProductMinInput.BackColor = backColor;
+            AddProductMaxInput.BackColor = backColor;
+            AddProductNameInput.BackColor = backColor;
+
+            errorProvider.SetError(AddProductMaxInput, "");
+            errorProvider.SetError(AddProductMinInput, "");
+            errorProvider.SetError(AddProductInventoryInput, "");
+            errorProvider.SetError(AddProductPriceInput, "");
+            errorProvider.SetError(AddProductNameInput, "");
+        }
+        private void IntParseError(TextBox textBoxName)
+        {
+            Color errorBackColor = Color.LightCoral;
+
+            textBoxName.BackColor = errorBackColor;
+            errorProvider.SetError(textBoxName, "Must be an integer");
+        }
+
+        private void DecimalParseError(TextBox textBoxName)
+        {
+            Color errorBackColor = Color.LightCoral;
+
+            textBoxName.BackColor = errorBackColor;
+            errorProvider.SetError(textBoxName, "Must be a number");
+
+        }
+
+        private void InputLengthError(TextBox textBoxName)
+        {
+            Color errorBackColor = Color.LightCoral;
+
+            textBoxName.BackColor = errorBackColor;
+            errorProvider.SetError(textBoxName, "Required");
+
+        }
+
+        private void MinMaxBoundsError(TextBox min, TextBox max)
+        {
+            Color errorBackColor = Color.LightCoral;
+            string errMessge = "Min must be less than or equal to Max";
+
+            min.BackColor = errorBackColor;
+            errorProvider.SetError(min, errMessge);
+
+            max.BackColor = errorBackColor;
+            errorProvider.SetError(max, errMessge);
         }
     }
 }
