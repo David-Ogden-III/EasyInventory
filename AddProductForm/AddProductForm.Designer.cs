@@ -238,7 +238,7 @@ namespace C968_Ogden
             RemoveAsscPartButton.Location = new Point(695, 401);
             RemoveAsscPartButton.Name = "RemoveAsscPartButton";
             RemoveAsscPartButton.Size = new Size(75, 23);
-            RemoveAsscPartButton.Text = "Remove";
+            RemoveAsscPartButton.Text = "Delete";
             RemoveAsscPartButton.UseVisualStyleBackColor = true;
             RemoveAsscPartButton.Click += RemoveAsscPartButton_Click;
             // 

@@ -1,5 +1,4 @@
 ﻿using System.Diagnostics;
-using System.ComponentModel;
 
 namespace C968_Ogden
 {
@@ -53,7 +52,7 @@ namespace C968_Ogden
 
             // Add Product to Inventory
             Inventory.Products.Add(newProd);
-            
+
             // Close  form, show MainScreen
             var MainScreen = Tag as MainScreen;
             MainScreen?.Show();
@@ -71,24 +70,42 @@ namespace C968_Ogden
 
         private void AddAssociatePartButton_Click(object sender, EventArgs e)
         {
-            var selectedRow = AllCandidatePartTable.SelectedRows[0];
-            Part tempPart = (Part)selectedRow.DataBoundItem;
-
-            if (!AssociatedPartsBindingList.Contains(tempPart))
+            try
             {
-                AssociatedPartsBindingList.Add(tempPart);
-                AssociatedPartsTable.ClearSelection();
+                var selectedRow = AllCandidatePartTable.SelectedRows[0];
+                Part tempPart = (Part)selectedRow.DataBoundItem;
+
+                if (!AssociatedPartsBindingList.Contains(tempPart))
+                {
+                    AssociatedPartsBindingList.Add(tempPart);
+                    AssociatedPartsTable.ClearSelection();
+                }
             }
+            catch (ArgumentOutOfRangeException ex)
+            {
+                Debug.WriteLine($"An item must be selected.\n{ex.Message}");
+            }
+            catch (Exception ex)
+            { Debug.WriteLine(ex.Message); }
         }
 
         private void RemoveAsscPartButton_Click(object sender, EventArgs e)
         {
-            var selectedRow = AssociatedPartsTable.SelectedRows[0];
-            Part tempPart = (Part)selectedRow.DataBoundItem;
+            try
+            {
+                var selectedRow = AssociatedPartsTable.SelectedRows[0];
+                Part tempPart = (Part)selectedRow.DataBoundItem;
 
-            AssociatedPartsBindingList.Remove(tempPart);
+                AssociatedPartsBindingList.Remove(tempPart);
 
-            AssociatedPartsTable.ClearSelection();
+                AssociatedPartsTable.ClearSelection();
+            }
+            catch (ArgumentOutOfRangeException ex)
+            {
+                Debug.WriteLine($"An item must be selected.\n{ex.Message}");
+            }
+            catch (Exception ex)
+            { Debug.WriteLine(ex.Message); }
         }
 
         private void SearchCandidatePartButton_Click(object sender, EventArgs e)
@@ -150,10 +167,10 @@ namespace C968_Ogden
                 e.SuppressKeyPress = true;
             }
         }
-        
-        
-        
-        
+
+
+
+
         // Helper Methods - Form Validation
         private bool ValidateInput()
         {
