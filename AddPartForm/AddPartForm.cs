@@ -1,7 +1,4 @@
-﻿using System.Diagnostics;
-using System.Windows.Forms;
-
-namespace C968_Ogden
+﻿namespace C968_Ogden
 {
     public partial class AddPartForm : Form
     {
