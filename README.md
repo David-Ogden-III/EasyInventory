@@ -1,4 +1,4 @@
-Pre-Loaded Dummy Data
+**Pre-Loaded Dummy Data**
 
 Product newProduct = new(Name, Price, Inventory, Min, Max)
 
