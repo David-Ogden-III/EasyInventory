@@ -1,5 +1,4 @@
-﻿using System.ComponentModel;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 
 namespace C968_Ogden
 {
@@ -106,25 +105,44 @@ namespace C968_Ogden
 
         private void RemoveAsscPartButton_Click(object sender, EventArgs e)
         {
-            var selectedRow = AssociatedPartsTable.SelectedRows[0];
-            Part tempPart = (Part)selectedRow.DataBoundItem;
+            try
+            {
+                var selectedRow = AssociatedPartsTable.SelectedRows[0];
+                Part tempPart = (Part)selectedRow.DataBoundItem;
 
-            DeleteDialog dialog = new(tempPart, AssociatedPartsBindingList);
-            dialog.ShowDialog();
+                DeleteDialog dialog = new(tempPart, AssociatedPartsBindingList);
+                dialog.ShowDialog();
 
-            AssociatedPartsTable.ClearSelection();
+                AssociatedPartsTable.ClearSelection();
+            }
+
+            catch (ArgumentOutOfRangeException ex)
+            {
+                Debug.WriteLine($"An item must be selected.\n{ex.Message}");
+            }
+            catch (Exception ex)
+            { Debug.WriteLine(ex.Message); }
         }
 
         private void AddAssociatePartButton_Click(object sender, EventArgs e)
         {
-            var selectedRow = AllCandidatePartTable.SelectedRows[0];
-            Part tempPart = (Part)selectedRow.DataBoundItem;
-
-            if (!AssociatedPartsBindingList.Contains(tempPart))
+            try
             {
-                AssociatedPartsBindingList.Add(tempPart);
-                AssociatedPartsTable.ClearSelection();
+                var selectedRow = AllCandidatePartTable.SelectedRows[0];
+                Part tempPart = (Part)selectedRow.DataBoundItem;
+
+                if (!AssociatedPartsBindingList.Contains(tempPart))
+                {
+                    AssociatedPartsBindingList.Add(tempPart);
+                    AssociatedPartsTable.ClearSelection();
+                }
             }
+            catch (ArgumentOutOfRangeException ex)
+            {
+                Debug.WriteLine($"An item must be selected.\n{ex.Message}");
+            }
+            catch (Exception ex)
+            { Debug.WriteLine(ex.Message); }
         }
 
         private void SearchCandidatePartButton_Click(object sender, EventArgs e)
