@@ -8,6 +8,20 @@ EasyInventory is an inventory management system that allows users to create, mod
 * .NET 8.0.3
 * Windows Forms App
 
-<ins>**Try It Out**</ins>
+<ins>**Screenshots**</ins>
 
-If you are on a windows machine, you can download the executable and test it for yourself.
+<ins>Home</ins>
+
+![MainPage](https://github.com/David-Ogden-III/EasyInventory/assets/71677972/c02662a7-7540-4821-a0c3-f028e30ba030)
+
+<ins>Attempting to Delete</ins>
+
+![DeleteProduct](https://github.com/David-Ogden-III/EasyInventory/assets/71677972/a9812d32-544f-421b-a8e1-908ffe6678b9)
+
+<ins>Modify Part Page with Input Error</ins>
+
+![ModifyPart](https://github.com/David-Ogden-III/EasyInventory/assets/71677972/04903273-f07a-4ee8-abc8-a49c9a43bbba)
+
+<ins>Modify Product Page</ins>
+
+![ModifyProduct](https://github.com/David-Ogden-III/EasyInventory/assets/71677972/bfb2fb97-7416-4a55-bf1a-c8b6d0298ebe)
