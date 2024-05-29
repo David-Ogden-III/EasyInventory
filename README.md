@@ -1,12 +1,13 @@
-**Pre-Loaded Dummy Data**
+<ins>**EasyInventory**</ins>
 
-Product newProduct = new(Name, Price, Inventory, Min, Max)
+EasyInventory is an inventory management system that allows users to create, modify, and delete products and parts. Once products are created, a user can then relate parts to a product. For example, a user can create a product named "Bicycle". Then, the product "Bicycle" can have multiple parts associated with it, like a seat, handlebars, tires, etc. EasyInventory offers search functionality to assist in the lookup of items, input validation to prevent the creation of malformed items, and safeguards to prevent the deletion of items if they're being referenced elsewhere.
 
-Parts:
+<ins>**Language & Technologies**</ins>
 
-Outsourced newPart = new(Name, Price, Inventory, Min, Max, Company Name)
+* C#
+* .NET 8.0.3
+* Windows Forms App
 
-InHouse newPart = new(Name, Price, Inventory, Min, Max, Machine ID)
+<ins>**Try It Out**</ins>
 
-
-![DummyData](https://github.com/David-Ogden-III/EasyInventory/assets/71677972/ccc0b7d3-7a35-4351-9996-6a938d8f601d)
+If you are on a windows machine, you can download the executable and test it for yourself.
